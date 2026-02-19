@@ -4,7 +4,7 @@ export function OngoingQuoteCard({ onClickHistory }) {
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-3xl font-black tracking-tight text-slate-900">진행 중인 견적</h2>
         <button type="button" className="text-sm font-semibold text-slate-400">
-          전체보기 ›
+          {/*전체보기 ›*/}
         </button>
       </div>
 
