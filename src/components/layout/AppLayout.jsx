@@ -4,7 +4,7 @@ import { BottomNav } from '../home/BottomNav'
 
 export function AppLayout() {
   return (
-    <main className="app-compact min-h-screen bg-[#eff2f7] px-3 py-6">
+    <main className="app-compact min-h-screen bg-[#eff2f7] px-3 ">
       <div className="mx-auto w-full lg:w-[60%]">
         <div className="mx-auto w-full overflow-hidden rounded-[20px] border border-slate-200 bg-[#f3f5f9] shadow-[0_20px_55px_-35px_rgba(37,99,235,0.5)]">
           <AppHeader />

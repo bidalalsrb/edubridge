@@ -28,7 +28,6 @@ export function BottomNav() {
         onClick={() => navigate('/alerts')}
       >
         <Bell className="h-5 w-5" />
-        <span className="absolute right-8 top-0 h-1.5 w-1.5 rounded-full bg-rose-500" />
         <span className="text-[20px] font-semibold">알림</span>
       </button>
       <button

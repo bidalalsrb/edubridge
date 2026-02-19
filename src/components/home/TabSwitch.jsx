@@ -9,7 +9,7 @@ export function TabSwitch({ tabs, activeTab, onChange }) {
           type="button"
           onClick={() => onChange(tab.key)}
           className={cn(
-            'rounded-xl py-3 text-[38px] font-black tracking-[-0.05em] transition-all',
+            'rounded-xl py-2 text-xl font-black tracking-tight transition-all',
             activeTab === tab.key ? 'bg-white text-[#336fea] shadow-sm' : 'text-slate-500',
           )}
         >

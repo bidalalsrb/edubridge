@@ -32,11 +32,11 @@ export function HomePage() {
       <OngoingQuoteCard />
       <ServiceGrid services={services} onClickService={onClickService} />
       <PremiumBanner />
-      <BidHistoryPanel
-        activeServiceTitle={activeService.title}
-        history={history}
-        onOpenMyPage={() => navigate('/my')}
-      />
+      {/*<BidHistoryPanel*/}
+      {/*  activeServiceTitle={activeService.title}*/}
+      {/*  history={history}*/}
+      {/*  onOpenMyPage={() => navigate('/my')}*/}
+      {/*/>*/}
     </section>
   )
 }
