@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+a,
+label[for] {
+  cursor: pointer;
+}
+
+.app-compact {
+  zoom: 0.8;
+}
+
+@supports not (zoom: 1) {
+  .app-compact {
+    transform: scale(0.8);
+    transform-origin: top center;
+  }
+}
