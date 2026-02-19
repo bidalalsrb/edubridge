@@ -23,6 +23,6 @@ export const services = [
   { id: 5, title: '캠프', icon: Bus, color: 'bg-cyan-100 text-cyan-600' },
   { id: 6, title: '창업', icon: HandPlatter, color: 'bg-pink-100 text-pink-600' },
   { id: 7, title: '쉼청년', icon: Pen, color: 'bg-amber-100 text-amber-600' },
-  { id: 8, title: '준비중', icon: Plus, color: 'bg-indigo-100 text-indigo-600' },
+  { id: 8, title: '준비중', icon: Plus, color: 'bg-slate-200 text-slate-600' },
   { id: 9, title: '준비중', icon: Plus, color: 'bg-slate-200 text-slate-600' },
 ]

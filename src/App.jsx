@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { AppLayout } from './components/layout/AppLayout'
 import { AlertsPage } from './pages/AlertsPage'
+import { BidNoticeListPage } from './pages/BidNoticeListPage'
 import { HomePage } from './pages/HomePage'
 import { MyPage } from './pages/MyPage'
 import { ProcessPage } from './pages/ProcessPage'
@@ -13,6 +14,7 @@ function App() {
     <Routes>
       <Route element={<AppLayout />}>
         <Route index element={<HomePage />} />
+        <Route path="bid-notices" element={<BidNoticeListPage />} />
         <Route path="proposal" element={<ProposalPage />} />
         <Route path="proposal-detail/:proposalId" element={<ProposalDetailPage />} />
         <Route path="submissions" element={<SubmissionHistoryPage />} />

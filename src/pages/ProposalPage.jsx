@@ -11,7 +11,13 @@ export function ProposalPage() {
   const [fileName, setFileName] = useState('')
 
   const tab = searchParams.get('tab') || 'vendor'
-  const service = searchParams.get('service') || '행사 기획'
+  const service = searchParams.get('service') || '고등학교'
+  const noticeId = searchParams.get('noticeId') || 'N-HS-101'
+  const noticeTitle = searchParams.get('noticeTitle') || '2024 Summer AI Coding Camp'
+  const noticeOrg = searchParams.get('noticeOrg') || '서울대학교 (Seoul University)'
+  const noticeDate = searchParams.get('noticeDate') || '2024-08-10'
+  const noticeBudget = searchParams.get('noticeBudget') || '최대 5,000,000 KRW'
+  const noticeDuration = searchParams.get('noticeDuration') || '2주'
   const directionText = tab === 'vendor' ? '업체 -> 대학 입찰 제안서' : '대학 -> 업체 입찰 제안서'
 
   const isSubmitDisabled = useMemo(() => {
@@ -43,11 +49,24 @@ export function ProposalPage() {
       <section className="space-y-6 px-6 py-6">
         <article className="rounded-2xl border border-[#dbe4f5] bg-[#f4f7fc] p-4">
           <span className="rounded-md bg-[#dce8ff] px-2 py-1 text-xs font-bold text-[#336fea]">공고 요약</span>
-          <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight text-slate-900">2024 Summer AI Coding Camp</h2>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <span className="rounded-full bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700">서비스 항목: {service}</span>
+            <span className="rounded-full bg-slate-200 px-2 py-1 text-xs font-bold text-slate-700">공고번호: {noticeId}</span>
+          </div>
+          <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight text-slate-900">{noticeTitle}</h2>
           <div className="mt-3 space-y-2 text-sm font-semibold text-slate-500">
-            <p className="flex items-center gap-2"><CalendarDays className="h-4 w-4" /> 2024-08-10</p>
-            <p className="flex items-center gap-2"><MapPin className="h-4 w-4" /> 서울대학교 (Seoul University)</p>
-            <p className="flex items-center gap-2"><Wallet className="h-4 w-4" /> 예산: 최대 5,000,000 KRW</p>
+            <p className="flex items-center gap-2">
+              <CalendarDays className="h-4 w-4" /> {noticeDate}
+            </p>
+            <p className="flex items-center gap-2">
+              <MapPin className="h-4 w-4" /> {noticeOrg}
+            </p>
+            <p className="flex items-center gap-2">
+              <Wallet className="h-4 w-4" /> 예산: {noticeBudget}
+            </p>
+            <p className="flex items-center gap-2">
+              <Clock3 className="h-4 w-4" /> 예상 기간: {noticeDuration}
+            </p>
           </div>
         </article>
 
@@ -86,7 +105,7 @@ export function ProposalPage() {
             rows={5}
             value={detail}
             onChange={(event) => setDetail(event.target.value)}
-            placeholder={`${service} 계획, 커리큘럼, 강사진 등 주요 서비스 내용을 상세히 작성해 주세요.`}
+            placeholder={`${service} 서비스 계획, 커리큘럼, 강사진 등 주요 내용을 상세히 작성해 주세요.`}
             className="w-full rounded-2xl border border-[#d7dfea] bg-white px-4 py-3 text-base font-semibold text-slate-700 outline-none placeholder:text-slate-400"
           />
         </div>
