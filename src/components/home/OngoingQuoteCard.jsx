@@ -1,4 +1,4 @@
-export function OngoingQuoteCard() {
+export function OngoingQuoteCard({ onClickHistory }) {
   return (
     <section className="mt-8">
       <div className="mb-4 flex items-center justify-between">
@@ -34,7 +34,13 @@ export function OngoingQuoteCard() {
             </div>
             <span className="text-sm font-bold text-slate-600">8개 업체 참여 중</span>
           </div>
-          <button className="rounded-xl bg-[#336fea] px-3 py-2 text-sm font-bold text-white">내역 확인</button>
+          <button
+            type="button"
+            onClick={onClickHistory}
+            className="rounded-xl bg-[#336fea] px-3 py-2 text-sm font-bold text-white"
+          >
+            내역 확인
+          </button>
         </div>
       </article>
     </section>

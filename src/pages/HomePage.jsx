@@ -26,10 +26,22 @@ export function HomePage() {
     navigate(`/proposal?${params.toString()}`)
   }
 
+  const onClickOngoingHistory = () => {
+    const params = new URLSearchParams({
+      tab: activeTab,
+      service: '캠프 운영',
+      status: '검토중',
+      price: '4,500,000원',
+      duration: '3주',
+      date: '2026-02-19',
+    })
+    navigate(`/proposal-detail/P-301?${params.toString()}`)
+  }
+
   return (
     <section className="px-6 py-6">
       <TabSwitch tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
-      <OngoingQuoteCard />
+      <OngoingQuoteCard onClickHistory={onClickOngoingHistory} />
       <ServiceGrid services={services} onClickService={onClickService} />
       <PremiumBanner />
       {/*<BidHistoryPanel*/}
