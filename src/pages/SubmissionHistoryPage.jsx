@@ -42,6 +42,18 @@ export function SubmissionHistoryPage() {
     navigate(`/process/${row.id}?${params.toString()}`)
   }
 
+  const goDetail = (row) => {
+    const params = new URLSearchParams({
+      tab,
+      service: row.service,
+      status: row.status,
+      price: row.price,
+      duration: row.duration,
+      date: row.date,
+    })
+    navigate(`/proposal-detail/${row.id}?${params.toString()}`)
+  }
+
   return (
     <>
       <header className="border-b border-slate-100 bg-white px-6 py-5">
@@ -86,6 +98,13 @@ export function SubmissionHistoryPage() {
                   제출 승인
                 </button>
               ) : null}
+              <button
+                type="button"
+                onClick={() => goDetail(row)}
+                className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700"
+              >
+                <FileText className="h-4 w-4" /> 상세 보기
+              </button>
               <button
                 type="button"
                 onClick={() => goProcess(row)}

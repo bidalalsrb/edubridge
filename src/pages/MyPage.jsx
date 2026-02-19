@@ -1,16 +1,34 @@
 import { FileText, UserCircle2 } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const mySubmissions = [
-  { id: 'P-301', service: '행사 기획', status: '제출완료', date: '2026-02-19' },
-  { id: 'P-300', service: '캠프 운영', status: '승인완료', date: '2026-02-18' },
-  { id: 'P-299', service: '특강 강사', status: '검토중', date: '2026-02-17' },
+  { id: 'P-301', service: '행사 기획', status: '제출완료', date: '2026-02-19', price: '3,000,000원', duration: '2주' },
+  { id: 'P-300', service: '캠프 운영', status: '승인완료', date: '2026-02-18', price: '4,200,000원', duration: '3주' },
+  { id: 'P-299', service: '특강 강사', status: '검토중', date: '2026-02-17', price: '2,100,000원', duration: '2주' },
 ]
 
 export function MyPage() {
+  const navigate = useNavigate()
+
   const getStatusClassName = (status) => {
     if (status === '승인완료') return 'bg-emerald-100 text-emerald-700'
     if (status === '제출완료') return 'bg-blue-100 text-blue-700'
     return 'bg-amber-100 text-amber-700'
+  }
+
+  const goSubmissionHistory = () => {
+    navigate('/submissions')
+  }
+
+  const goSubmissionDetail = (row) => {
+    const params = new URLSearchParams({
+      service: row.service,
+      status: row.status,
+      price: row.price,
+      duration: row.duration,
+      date: row.date,
+    })
+    navigate(`/proposal-detail/${row.id}?${params.toString()}`)
   }
 
   return (
@@ -26,8 +44,23 @@ export function MyPage() {
       </header>
 
       <section className="space-y-3 px-6 py-6">
+        <button
+          type="button"
+          onClick={goSubmissionHistory}
+          className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left"
+        >
+          <p className="text-xs font-bold text-[#336fea]">제안서 내역</p>
+          <h2 className="text-xl font-black tracking-tight text-slate-900">전체 제출 내역 보기</h2>
+          <p className="mt-1 text-sm font-semibold text-slate-600">클릭하면 제안서 제출 내역 페이지로 이동합니다.</p>
+        </button>
+
         {mySubmissions.map((row) => (
-          <article key={row.id} className="rounded-2xl border border-slate-200 bg-white p-4">
+          <button
+            type="button"
+            key={row.id}
+            onClick={() => goSubmissionDetail(row)}
+            className="w-full rounded-2xl border border-slate-200 bg-white p-4 text-left"
+          >
             <div className="mb-2 flex items-start justify-between gap-3">
               <div>
                 <p className="text-xs font-bold text-[#336fea]">{row.id}</p>
@@ -42,9 +75,11 @@ export function MyPage() {
               <p className="flex items-center gap-2">
                 <FileText className="h-4 w-4" /> 서비스: {row.service}
               </p>
+              <p>제안 금액: {row.price}</p>
+              <p>소요 기간: {row.duration}</p>
               <p>제출일: {row.date}</p>
             </div>
-          </article>
+          </button>
         ))}
       </section>
     </>

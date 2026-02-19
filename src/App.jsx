@@ -4,6 +4,7 @@ import { AlertsPage } from './pages/AlertsPage'
 import { HomePage } from './pages/HomePage'
 import { MyPage } from './pages/MyPage'
 import { ProcessPage } from './pages/ProcessPage'
+import { ProposalDetailPage } from './pages/ProposalDetailPage'
 import { ProposalPage } from './pages/ProposalPage'
 import { SubmissionHistoryPage } from './pages/SubmissionHistoryPage'
 
@@ -13,6 +14,7 @@ function App() {
       <Route element={<AppLayout />}>
         <Route index element={<HomePage />} />
         <Route path="proposal" element={<ProposalPage />} />
+        <Route path="proposal-detail/:proposalId" element={<ProposalDetailPage />} />
         <Route path="submissions" element={<SubmissionHistoryPage />} />
         <Route path="process/:proposalId" element={<ProcessPage />} />
         <Route path="alerts" element={<AlertsPage />} />
