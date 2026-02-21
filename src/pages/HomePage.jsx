@@ -29,7 +29,7 @@ export function HomePage() {
 
   return (
     <section className="px-6 py-6">
-      <TabSwitch tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
+      {/*<TabSwitch tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />*/}
       <OngoingQuoteCard onClickHistory={onClickOngoingHistory} />
       <ServiceGrid services={services} onClickService={onClickService} />
       <PremiumBanner />

@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { AppLayout } from './components/layout/AppLayout'
 import { AlertsPage } from './pages/AlertsPage'
 import { BidNoticeListPage } from './pages/BidNoticeListPage'
+import { HomePage } from './pages/HomePage'
 import { MyPage } from './pages/MyPage'
 import { MyNoticesPage } from './pages/MyNoticesPage'
 import { NoticeCreatePage } from './pages/NoticeCreatePage'
@@ -22,7 +23,8 @@ function App() {
   return (
     <Routes>
       <Route element={<AppLayout />}>
-        <Route index element={<Navigate to="/offer" replace />} />
+        <Route index element={<Navigate to="/home" replace />} />
+        <Route path="home" element={<HomePage />} />
         <Route path="offer" element={<OfferDashboardPage />} />
         <Route path="offer/service/:serviceName" element={<OfferServiceRecentPage />} />
         <Route path="request" element={<RequestDashboardPage />} />
@@ -41,7 +43,7 @@ function App() {
         <Route path="vendor/my" element={<VendorMyPage />} />
         <Route path="my" element={<MyPage />} />
       </Route>
-      <Route path="*" element={<Navigate to="/offer" replace />} />
+      <Route path="*" element={<Navigate to="/home" replace />} />
     </Routes>
   )
 }

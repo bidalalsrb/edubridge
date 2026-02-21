@@ -1,9 +1,10 @@
 import { ArrowLeft } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { serviceCards } from '../data/marketplaceData'
+import { USER_ROLE, setStoredUserRole } from '../lib/userRole'
 
 export function ProviderRegisterPage() {
   const navigate = useNavigate()
@@ -19,6 +20,10 @@ export function ProviderRegisterPage() {
   })
   const [error, setError] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
+
+  useEffect(() => {
+    setStoredUserRole(USER_ROLE.vendor)
+  }, [])
 
   const selectableServices = useMemo(() => serviceCards.filter((item) => item.title !== '준비중'), [])
 

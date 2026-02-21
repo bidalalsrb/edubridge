@@ -11,8 +11,8 @@ import {
 } from 'lucide-react'
 
 export const tabs = [
-  { key: 'vendor', label: '제안합니다(업체(프리)한테 제안하는)' },
-  { key: 'university', label: '제안해주세요(대학에서 공고입찰을 올리는 곳)' },
+  { key: 'vendor', label: '제안합니다' },
+  { key: 'university', label: '제안해주세요' },
 ]
 
 export const services = [

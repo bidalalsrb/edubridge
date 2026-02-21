@@ -1,5 +1,7 @@
+import { useEffect } from 'react'
 import { BriefcaseBusiness, FileText, UserCircle2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import { USER_ROLE, setStoredUserRole } from '../lib/userRole'
 
 const vendorSubmissions = [
   { id: 'P-301', service: '행사 기획', status: '제출완료', date: '2026-02-19', price: '3,000,000원', duration: '2주' },
@@ -9,6 +11,10 @@ const vendorSubmissions = [
 
 export function VendorMyPage() {
   const navigate = useNavigate()
+
+  useEffect(() => {
+    setStoredUserRole(USER_ROLE.vendor)
+  }, [])
 
   const getStatusClassName = (status) => {
     if (status === '승인완료') return 'bg-emerald-100 text-emerald-700'
@@ -43,15 +49,29 @@ export function VendorMyPage() {
     navigate(`/proposal-detail/${row.id}?${params.toString()}`)
   }
 
+  const goUniversityMyPage = () => {
+    setStoredUserRole(USER_ROLE.university)
+    navigate('/my')
+  }
+
   return (
     <>
       <header className="border-b border-slate-100 bg-white px-6 py-5">
-        <div className="flex items-center gap-3">
-          <UserCircle2 className="h-10 w-10 text-brand-600" />
-          <div>
-            <h1 className="text-3xl font-black tracking-tight text-slate-900">업체 마이페이지</h1>
-            <p className="mt-1 text-sm font-semibold text-brand-600">업체/프리랜서 제안 및 프로필 관리</p>
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <UserCircle2 className="h-10 w-10 text-brand-600" />
+            <div>
+              <h1 className="text-3xl font-black tracking-tight text-slate-900">업체 마이페이지</h1>
+              <p className="mt-1 text-sm font-semibold text-brand-600">업체/프리랜서 제안 및 프로필 관리</p>
+            </div>
           </div>
+          <button
+            type="button"
+            onClick={goUniversityMyPage}
+            className="rounded-xl border border-brand-150 bg-brand-50 px-3 py-2 text-xs font-bold text-brand-700"
+          >
+            대학 전환
+          </button>
         </div>
       </header>
 

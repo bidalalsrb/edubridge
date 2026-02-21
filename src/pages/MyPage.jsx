@@ -1,5 +1,7 @@
+import { useEffect } from 'react'
 import { Building2, FileText } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import { USER_ROLE, setStoredUserRole } from '../lib/userRole'
 
 const mySubmissions = [
   { id: 'P-301', service: '행사 기획', status: '제출완료', date: '2026-02-19', price: '3,000,000원', duration: '2주' },
@@ -9,6 +11,10 @@ const mySubmissions = [
 
 export function MyPage() {
   const navigate = useNavigate()
+
+  useEffect(() => {
+    setStoredUserRole(USER_ROLE.university)
+  }, [])
 
   const getStatusClassName = (status) => {
     if (status === '승인완료') return 'bg-emerald-100 text-emerald-700'
@@ -47,15 +53,29 @@ export function MyPage() {
     navigate(`/proposal-detail/${row.id}?${params.toString()}`)
   }
 
+  const goVendorMyPage = () => {
+    setStoredUserRole(USER_ROLE.vendor)
+    navigate('/vendor/my')
+  }
+
   return (
     <>
       <header className="border-b border-slate-100 bg-white px-6 py-5">
-        <div className="flex items-center gap-3">
-          <Building2 className="h-10 w-10 text-brand-600" />
-          <div>
-            <h1 className="text-3xl font-black tracking-tight text-slate-900">대학 마이페이지</h1>
-            <p className="mt-1 text-sm font-semibold text-brand-600">공고 등록/운영 및 지원자 관리</p>
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <Building2 className="h-10 w-10 text-brand-600" />
+            <div>
+              <h1 className="text-3xl font-black tracking-tight text-slate-900">대학 마이페이지</h1>
+              <p className="mt-1 text-sm font-semibold text-brand-600">공고 등록/운영 및 지원자 관리</p>
+            </div>
           </div>
+          <button
+            type="button"
+            onClick={goVendorMyPage}
+            className="rounded-xl border border-brand-150 bg-brand-50 px-3 py-2 text-xs font-bold text-brand-700"
+          >
+            업체 전환
+          </button>
         </div>
       </header>
 
