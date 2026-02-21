@@ -58,9 +58,9 @@ export function BidNoticeListPage() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
 
-  const tab = searchParams.get('tab') || 'vendor'
+  const tab = searchParams.get('tab') || 'offer'
   const service = searchParams.get('service') || '고등학교'
-  const directionText = tab === 'vendor' ? '업체 -> 대학 입찰 공고' : '대학 -> 업체 입찰 공고'
+  const directionText = tab === 'offer' ? '제안합니다: 업체/강사가 대학 공고를 확인' : '제안해주세요: 대학 공고 관리'
 
   const notices = useMemo(() => {
     return noticeCatalog[service] || getDefaultNotices(service)

@@ -13,12 +13,12 @@ export function SubmissionHistoryPage() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
 
-  const tab = searchParams.get('tab') || 'vendor'
+  const tab = searchParams.get('tab') || 'offer'
   const service = searchParams.get('service') || '행사 기획'
   const price = searchParams.get('price') || ''
   const duration = searchParams.get('duration') || ''
 
-  const flowText = tab === 'vendor' ? '업체 -> 대학 제안서 제출 내역' : '대학 -> 업체 제안서 제출 내역'
+  const flowText = tab === 'offer' ? '제안합니다: 제안서 제출 내역' : '제안해주세요: 제안서 제출 내역'
 
   const rows = useMemo(() => {
     const latest = {

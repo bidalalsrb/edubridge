@@ -10,7 +10,7 @@ export function ProposalPage() {
   const [detail, setDetail] = useState('')
   const [fileName, setFileName] = useState('')
 
-  const tab = searchParams.get('tab') || 'vendor'
+  const tab = searchParams.get('tab') || 'offer'
   const service = searchParams.get('service') || '고등학교'
   const noticeId = searchParams.get('noticeId') || 'N-HS-101'
   const noticeTitle = searchParams.get('noticeTitle') || '2024 Summer AI Coding Camp'
@@ -18,7 +18,7 @@ export function ProposalPage() {
   const noticeDate = searchParams.get('noticeDate') || '2024-08-10'
   const noticeBudget = searchParams.get('noticeBudget') || '최대 5,000,000 KRW'
   const noticeDuration = searchParams.get('noticeDuration') || '2주'
-  const directionText = tab === 'vendor' ? '업체 -> 대학 입찰 제안서' : '대학 -> 업체 입찰 제안서'
+  const directionText = tab === 'offer' ? '제안합니다: 대학 공고 입찰 제안서' : '제안해주세요: 대학 요청 제안서'
 
   const isSubmitDisabled = useMemo(() => {
     return !price.trim() || !duration.trim() || !detail.trim()
