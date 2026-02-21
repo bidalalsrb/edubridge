@@ -8,8 +8,8 @@ export function OngoingQuoteCard({ onClickHistory }) {
         </button>
       </div>
 
-      <article className="rounded-2xl border border-[#d4e1fb] bg-[#eaf1ff] p-5">
-        <span className="inline-flex rounded-full bg-[#336fea] px-3 py-1 text-xs font-bold text-white">
+      <article className="rounded-2xl border border-brand-150 bg-brand-100 p-5">
+        <span className="inline-flex rounded-full bg-brand-600 px-3 py-1 text-xs font-bold text-white">
           실시간 입찰 중
         </span>
         <div className="mt-4 flex items-start justify-between gap-3">
@@ -19,7 +19,7 @@ export function OngoingQuoteCard({ onClickHistory }) {
           </div>
           <div className="text-right">
             <p className="text-sm font-semibold text-slate-400">현재 최저가</p>
-            <p className="text-3xl font-black leading-none tracking-tight text-[#336fea]">4,500,000원</p>
+            <p className="text-3xl font-black leading-none tracking-tight text-brand-600">4,500,000원</p>
           </div>
         </div>
 
@@ -37,7 +37,7 @@ export function OngoingQuoteCard({ onClickHistory }) {
           <button
             type="button"
             onClick={onClickHistory}
-            className="rounded-xl bg-[#336fea] px-3 py-2 text-sm font-bold text-white"
+            className="rounded-xl bg-brand-600 px-3 py-2 text-sm font-bold text-white"
           >
             내역 확인
           </button>

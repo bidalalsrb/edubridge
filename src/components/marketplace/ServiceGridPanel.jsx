@@ -19,7 +19,7 @@ export function ServiceGridPanel({ services }) {
                 key={service.id}
                 type="button"
                 onClick={() => navigate(`/offer/service/${encodeURIComponent(service.title)}`)}
-                className="rounded-2xl border border-slate-200 bg-white p-3 text-left transition hover:border-slate-400"
+                className="flex min-h-[112px] flex-col items-center justify-center rounded-2xl bg-white p-3 text-center transition hover:bg-brand-50"
               >
                 <span className={`mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl ${service.color}`}>
                   <Icon className="h-5 w-5" />

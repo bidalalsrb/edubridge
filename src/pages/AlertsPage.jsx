@@ -17,7 +17,7 @@ export function AlertsPage() {
     <>
       <header className="border-b border-slate-100 bg-white px-6 py-5">
         <h1 className="text-3xl font-black tracking-tight text-slate-900">알림</h1>
-        <p className="mt-1 text-sm font-semibold text-[#336fea]">최근 입찰/제출 상태 알림</p>
+        <p className="mt-1 text-sm font-semibold text-brand-600">최근 입찰/제출 상태 알림</p>
       </header>
 
       <section className="space-y-3 px-6 py-6">
@@ -25,7 +25,7 @@ export function AlertsPage() {
           <article key={item.id} className="rounded-2xl border border-slate-200 bg-white p-4">
             <div className="mb-2 flex items-start justify-between gap-3">
               <div>
-                <p className="text-xs font-bold text-[#336fea]">A-{String(item.id).padStart(3, '0')}</p>
+                <p className="text-xs font-bold text-brand-600">A-{String(item.id).padStart(3, '0')}</p>
                 <h2 className="text-xl font-black tracking-tight text-slate-900">{item.title}</h2>
               </div>
               <span className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-bold ${getTypeClassName(item.type)}`}>

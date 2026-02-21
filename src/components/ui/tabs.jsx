@@ -7,7 +7,7 @@ export function Tabs({ children, className }) {
 export function TabsList({ className, ...props }) {
   return (
     <div
-      className={cn('inline-flex h-11 items-center rounded-xl bg-slate-100 p-1 text-slate-500', className)}
+      className={cn('inline-flex h-11 items-center rounded-xl bg-brand-200 p-1 text-slate-500', className)}
       {...props}
     />
   )
@@ -18,7 +18,7 @@ export function TabsTrigger({ className, active = false, ...props }) {
     <button
       className={cn(
         'inline-flex items-center justify-center whitespace-nowrap rounded-lg px-4 py-1.5 text-sm font-medium transition-all',
-        active ? 'bg-white text-slate-900 shadow-sm' : 'hover:text-slate-700',
+        active ? 'bg-white text-brand-700 shadow-sm' : 'hover:text-slate-700',
         className,
       )}
       {...props}

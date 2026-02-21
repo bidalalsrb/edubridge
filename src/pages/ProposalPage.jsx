@@ -42,13 +42,13 @@ export function ProposalPage() {
         </button>
         <div>
           <h1 className="text-3xl font-black tracking-tight text-slate-900">제안서 작성</h1>
-          <p className="text-sm font-semibold text-[#336fea]">{directionText}</p>
+          <p className="text-sm font-semibold text-brand-600">{directionText}</p>
         </div>
       </header>
 
       <section className="space-y-6 px-6 py-6">
-        <article className="rounded-2xl border border-[#dbe4f5] bg-[#f4f7fc] p-4">
-          <span className="rounded-md bg-[#dce8ff] px-2 py-1 text-xs font-bold text-[#336fea]">공고 요약</span>
+        <article className="rounded-2xl border border-brand-200 bg-shell-100 p-4">
+          <span className="rounded-md bg-brand-150 px-2 py-1 text-xs font-bold text-brand-600">공고 요약</span>
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <span className="rounded-full bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700">서비스 항목: {service}</span>
             <span className="rounded-full bg-slate-200 px-2 py-1 text-xs font-bold text-slate-700">공고번호: {noticeId}</span>
@@ -72,7 +72,7 @@ export function ProposalPage() {
 
         <div>
           <label className="mb-2 block text-lg font-extrabold text-slate-700">제안 금액</label>
-          <div className="flex items-center rounded-2xl border border-[#d7dfea] bg-white px-4 py-3">
+          <div className="flex items-center rounded-2xl border border-brand-200 bg-white px-4 py-3">
             <input
               type="number"
               min="0"
@@ -88,7 +88,7 @@ export function ProposalPage() {
 
         <div>
           <label className="mb-2 block text-lg font-extrabold text-slate-700">예상 소요 기간</label>
-          <div className="flex items-center rounded-2xl border border-[#d7dfea] bg-white px-4 py-3">
+          <div className="flex items-center rounded-2xl border border-brand-200 bg-white px-4 py-3">
             <input
               value={duration}
               onChange={(event) => setDuration(event.target.value)}
@@ -106,14 +106,14 @@ export function ProposalPage() {
             value={detail}
             onChange={(event) => setDetail(event.target.value)}
             placeholder={`${service} 서비스 계획, 커리큘럼, 강사진 등 주요 내용을 상세히 작성해 주세요.`}
-            className="w-full rounded-2xl border border-[#d7dfea] bg-white px-4 py-3 text-base font-semibold text-slate-700 outline-none placeholder:text-slate-400"
+            className="w-full rounded-2xl border border-brand-200 bg-white px-4 py-3 text-base font-semibold text-slate-700 outline-none placeholder:text-slate-400"
           />
         </div>
 
         <div>
           <label className="mb-2 block text-lg font-extrabold text-slate-700">제안서 파일 (PDF, PPT)</label>
-          <div className="rounded-2xl border-2 border-dashed border-[#d7dfea] bg-white px-4 py-8 text-center">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#eaf1ff] text-[#336fea]">
+          <div className="rounded-2xl border-2 border-dashed border-brand-200 bg-white px-4 py-8 text-center">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-100 text-brand-600">
               <FileUp className="h-7 w-7" />
             </div>
             <p className="mt-3 text-sm font-semibold text-slate-500">파일을 드래그하거나 클릭하여 업로드</p>
@@ -125,7 +125,7 @@ export function ProposalPage() {
             >
               파일 선택하기
             </label>
-            {fileName ? <p className="mt-2 text-xs font-semibold text-[#336fea]">{fileName}</p> : null}
+            {fileName ? <p className="mt-2 text-xs font-semibold text-brand-600">{fileName}</p> : null}
           </div>
         </div>
 
@@ -133,7 +133,7 @@ export function ProposalPage() {
           type="button"
           onClick={onSubmit}
           disabled={isSubmitDisabled}
-          className="w-full rounded-2xl bg-[#336fea] py-4 text-2xl font-black tracking-tight text-white disabled:cursor-not-allowed disabled:bg-slate-300"
+          className="w-full rounded-2xl bg-brand-600 py-4 text-2xl font-black tracking-tight text-white disabled:cursor-not-allowed disabled:bg-slate-300"
         >
           제안서 제출하기
         </button>

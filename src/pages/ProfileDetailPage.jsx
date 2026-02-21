@@ -41,7 +41,7 @@ export function ProfileDetailPage() {
         <ArrowLeft className="h-4 w-4" /> 이전
       </button>
 
-      <Card className="border-[#d7dfea]">
+      <Card className="border-brand-200">
         <CardContent className="p-5">
           <div className="flex items-start gap-4">
             <div className={`mt-1 h-16 w-16 rounded-full ring-4 ring-amber-100 ${profile.profileColor || 'bg-slate-300'}`} />
@@ -49,7 +49,7 @@ export function ProfileDetailPage() {
               <p className="text-2xl font-black text-slate-900">{profile.name}</p>
               <p className="mt-1 text-sm font-semibold text-slate-500">{profile.type}</p>
               <p className="mt-1 flex items-center gap-1 text-sm font-semibold text-slate-600">
-                <Star className="h-4 w-4 fill-[#2f5bff] text-[#2f5bff]" />
+                <Star className="h-4 w-4 fill-brand-700 text-brand-700" />
                 {profile.rating} · 후기 {profile.reviewCount}개 · 경력 {profile.careerYears}년
               </p>
             </div>
@@ -59,18 +59,18 @@ export function ProfileDetailPage() {
 
           <div className="mt-4 grid gap-2 md:grid-cols-2">
             <div className="rounded-xl bg-slate-50 p-3 text-sm font-semibold text-slate-600">
-              <p className="mb-1 text-xs font-bold text-[#336fea]">연락처</p>
+              <p className="mb-1 text-xs font-bold text-brand-600">연락처</p>
               <p className="inline-flex items-center gap-1"><Phone className="h-4 w-4" /> {profile.phone}</p>
             </div>
             <div className="rounded-xl bg-slate-50 p-3 text-sm font-semibold text-slate-600">
-              <p className="mb-1 text-xs font-bold text-[#336fea]">활동 정보</p>
+              <p className="mb-1 text-xs font-bold text-brand-600">활동 정보</p>
               <p className="inline-flex items-center gap-1"><MapPin className="h-4 w-4" /> {profile.region}</p>
               <p className="inline-flex items-center gap-1"><Clock3 className="h-4 w-4" /> 최근 행사 {profile.lastEvent}</p>
             </div>
           </div>
 
           <div className="mt-4">
-            <p className="mb-2 text-sm font-bold text-[#336fea]">전문 분야</p>
+            <p className="mb-2 text-sm font-bold text-brand-600">전문 분야</p>
             <div className="flex flex-wrap gap-2">
               {(profile.specialties || []).map((item) => (
                 <span key={item} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">
@@ -81,7 +81,7 @@ export function ProfileDetailPage() {
           </div>
 
           <div className="mt-4">
-            <p className="mb-2 text-sm font-bold text-[#336fea]">최근 포트폴리오</p>
+            <p className="mb-2 text-sm font-bold text-brand-600">최근 포트폴리오</p>
             <ul className="space-y-1 text-sm font-semibold text-slate-600">
               {(profile.portfolio || []).map((item) => (
                 <li key={item}>- {item}</li>

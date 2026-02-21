@@ -13,6 +13,7 @@ import { ProfileDetailPage } from './pages/ProfileDetailPage'
 import { ProposalDetailPage } from './pages/ProposalDetailPage'
 import { ProposalPage } from './pages/ProposalPage'
 import { ProviderRegisterPage } from './pages/ProviderRegisterPage'
+import { RequestNoticeDetailPage } from './pages/RequestNoticeDetailPage'
 import { RequestDashboardPage } from './pages/RequestDashboardPage'
 import { SubmissionHistoryPage } from './pages/SubmissionHistoryPage'
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="offer" element={<OfferDashboardPage />} />
         <Route path="offer/service/:serviceName" element={<OfferServiceRecentPage />} />
         <Route path="request" element={<RequestDashboardPage />} />
+        <Route path="request/notices/:noticeId" element={<RequestNoticeDetailPage />} />
         <Route path="notice-create" element={<NoticeCreatePage />} />
         <Route path="my/notices" element={<MyNoticesPage />} />
         <Route path="my/notices/status/:noticeId" element={<NoticeStatusPage />} />

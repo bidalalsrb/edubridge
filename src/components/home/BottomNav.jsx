@@ -9,27 +9,27 @@ export function BottomNav() {
   const isHome = location.pathname === '/offer' || location.pathname === '/request'
 
   return (
-    <footer className="grid grid-cols-4 border-t border-slate-200 bg-white px-3 py-3 text-center text-slate-400">
-      <button className={cn('flex flex-col items-center gap-1', isHome ? 'text-[#336fea]' : '')} onClick={() => navigate('/offer')}>
+    <footer className="grid grid-cols-4 border-t border-brand-100 bg-white px-3 py-3 text-center text-slate-400">
+      <button className={cn('flex flex-col items-center gap-1 transition-colors', isHome ? 'text-brand-600' : '')} onClick={() => navigate('/offer')}>
         <Home className="h-5 w-5" />
         <span className="text-[20px] font-bold">홈</span>
       </button>
       <button
-        className={cn('flex flex-col items-center gap-1', location.pathname === '/submissions' ? 'text-[#336fea]' : '')}
+        className={cn('flex flex-col items-center gap-1 transition-colors', location.pathname === '/submissions' ? 'text-brand-600' : '')}
         onClick={() => navigate('/submissions')}
       >
         <HandCoins className="h-5 w-5" />
         {/*<span className="text-[20px] font-semibold">내역</span>*/}
       </button>
       <button
-        className={cn('relative flex flex-col items-center gap-1', location.pathname === '/alerts' ? 'text-[#336fea]' : '')}
+        className={cn('relative flex flex-col items-center gap-1 transition-colors', location.pathname === '/alerts' ? 'text-brand-600' : '')}
         onClick={() => navigate('/alerts')}
       >
         <Bell className="h-5 w-5" />
         {/*<span className="text-[20px] font-semibold">알림</span>*/}
       </button>
       <button
-        className={cn('flex flex-col items-center gap-1', location.pathname === '/my' ? 'text-[#336fea]' : '')}
+        className={cn('flex flex-col items-center gap-1 transition-colors', location.pathname === '/my' ? 'text-brand-600' : '')}
         onClick={() => navigate('/my')}
       >
         <Settings2 className="h-5 w-5" />

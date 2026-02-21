@@ -30,7 +30,7 @@ export function ProcessPage() {
     <>
       <header className="border-b border-slate-100 bg-white px-6 py-5">
         <h1 className="text-3xl font-black tracking-tight text-slate-900">프로세스 현황</h1>
-        <p className="mt-1 text-sm font-semibold text-[#336fea]">제안번호 {proposalId} · {service}</p>
+        <p className="mt-1 text-sm font-semibold text-brand-600">제안번호 {proposalId} · {service}</p>
       </header>
 
       <section className="space-y-5 px-6 py-6">
@@ -53,8 +53,8 @@ export function ProcessPage() {
                 className={`rounded-2xl border p-4 ${done ? 'border-blue-200 bg-blue-50' : 'border-slate-200 bg-white'}`}
               >
                 <div className="flex items-center gap-2">
-                  {done ? <CheckCircle2 className="h-5 w-5 text-[#336fea]" /> : <Circle className="h-5 w-5 text-slate-300" />}
-                  <p className={`font-black ${active ? 'text-[#336fea]' : 'text-slate-700'}`}>{item.title}</p>
+                  {done ? <CheckCircle2 className="h-5 w-5 text-brand-600" /> : <Circle className="h-5 w-5 text-slate-300" />}
+                  <p className={`font-black ${active ? 'text-brand-600' : 'text-slate-700'}`}>{item.title}</p>
                 </div>
                 <p className="mt-1 text-sm font-semibold text-slate-500">{item.desc}</p>
               </div>
@@ -73,7 +73,7 @@ export function ProcessPage() {
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="rounded-xl bg-[#336fea] px-4 py-2 text-sm font-bold text-white"
+            className="rounded-xl bg-brand-600 px-4 py-2 text-sm font-bold text-white"
           >
             홈으로
           </button>

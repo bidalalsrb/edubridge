@@ -29,7 +29,7 @@ export function NoticeStatusPage() {
           <CardTitle className="text-xl font-black">공고 진행현황</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-xs font-bold text-[#336fea]">{notice.id}</p>
+          <p className="text-xs font-bold text-brand-600">{notice.id}</p>
           <h2 className="text-lg font-black text-slate-900">{notice.title}</h2>
           <p className="mt-1 text-sm font-semibold text-slate-600">현재 상태: {notice.status}</p>
 
@@ -38,7 +38,7 @@ export function NoticeStatusPage() {
               const done = index < notice.progress.length - 1
               return (
                 <div key={step} className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2">
-                  {done ? <CheckCircle2 className="h-4 w-4 text-[#336fea]" /> : <Circle className="h-4 w-4 text-slate-400" />}
+                  {done ? <CheckCircle2 className="h-4 w-4 text-brand-600" /> : <Circle className="h-4 w-4 text-slate-400" />}
                   <p className="text-sm font-semibold text-slate-700">{step}</p>
                 </div>
               )

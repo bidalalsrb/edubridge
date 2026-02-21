@@ -61,7 +61,7 @@ export function ProposalDetailPage() {
         </button>
         <div>
           <h1 className="text-3xl font-black tracking-tight text-slate-900">제안서 상세</h1>
-          <p className="mt-1 text-sm font-semibold text-[#336fea]">제안번호 {proposalId}</p>
+          <p className="mt-1 text-sm font-semibold text-brand-600">제안번호 {proposalId}</p>
         </div>
       </header>
 
@@ -69,7 +69,7 @@ export function ProposalDetailPage() {
         <article className="rounded-2xl border border-slate-200 bg-white p-4">
           <div className="mb-2 flex items-start justify-between gap-3">
             <div>
-              <p className="text-xs font-bold text-[#336fea]">{proposalId}</p>
+              <p className="text-xs font-bold text-brand-600">{proposalId}</p>
               <h2 className="text-xl font-black tracking-tight text-slate-900">{detail.title}</h2>
             </div>
             <span className="rounded-full bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700">{status}</span>
@@ -119,7 +119,7 @@ export function ProposalDetailPage() {
         <button
           type="button"
           onClick={onClickProcess}
-          className="w-full rounded-2xl bg-[#336fea] py-4 text-base font-black tracking-tight text-white"
+          className="w-full rounded-2xl bg-brand-600 py-4 text-base font-black tracking-tight text-white"
         >
           프로세스 보기
         </button>

@@ -15,7 +15,7 @@ function RecentCard({ row, onDetail, onRequest }) {
           <p className="truncate text-base font-bold text-slate-900">{row.name}</p>
           <p className="mt-0.5 text-xs font-medium text-slate-500">{row.type}</p>
           <p className="mt-1 flex items-center gap-1 text-xs font-medium text-slate-600">
-            <Star className="h-3.5 w-3.5 fill-[#2f5bff] text-[#2f5bff]" />
+            <Star className="h-3.5 w-3.5 fill-brand-700 text-brand-700" />
             {row.rating} · 후기 {row.reviewCount}개 · 최근 {row.lastEvent}
           </p>
         </div>

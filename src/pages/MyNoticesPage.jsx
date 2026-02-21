@@ -25,7 +25,7 @@ export function MyNoticesPage() {
         <CardContent className="grid gap-3">
           {notices.map((notice) => (
             <article key={notice.id} className="rounded-xl border border-slate-200 bg-white p-3">
-              <p className="text-xs font-bold text-[#336fea]">{notice.id}</p>
+              <p className="text-xs font-bold text-brand-600">{notice.id}</p>
               <h3 className="text-lg font-black text-slate-900">{notice.title}</h3>
               <p className="text-sm font-semibold text-slate-600">{notice.school} · {notice.service} · {notice.status}</p>
               <p className="mt-1 text-sm font-semibold text-slate-500">마감 {notice.dueDate} · 예산 {notice.budget}</p>

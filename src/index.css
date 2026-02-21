@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #eaf1ff;
+  --color-brand-150: #dce8ff;
+  --color-brand-200: #d7dfea;
+  --color-brand-300: #cfe0ff;
+  --color-brand-600: #336fea;
+  --color-brand-700: #2f5bff;
+
+  --color-shell-50: #f8f9fc;
+  --color-shell-100: #f4f7fc;
+  --color-shell-200: #f3f5f9;
+  --color-shell-300: #eff2f7;
+}
+
 :root {
   font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
 }
@@ -17,6 +32,11 @@ body,
 
 body {
   margin: 0;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(51, 111, 234, 0.1), transparent 30%),
+    radial-gradient(circle at 85% 25%, rgba(51, 111, 234, 0.08), transparent 35%),
+    linear-gradient(180deg, #f6f8fd 0%, #edf2f9 100%);
+  color: #0f172a;
 }
 
 button,

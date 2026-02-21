@@ -58,7 +58,7 @@ export function SubmissionHistoryPage() {
     <>
       <header className="border-b border-slate-100 bg-white px-6 py-5">
         <h1 className="text-3xl font-black tracking-tight text-slate-900">제안서 제출 내역</h1>
-        <p className="mt-1 text-sm font-semibold text-[#336fea]">{flowText}</p>
+        <p className="mt-1 text-sm font-semibold text-brand-600">{flowText}</p>
       </header>
 
       <section className="space-y-3 px-6 py-6">
@@ -66,7 +66,7 @@ export function SubmissionHistoryPage() {
           <article key={row.id} className="rounded-2xl border border-slate-200 bg-white p-4">
             <div className="mb-2 flex items-start justify-between gap-3">
               <div>
-                <p className="text-xs font-bold text-[#336fea]">{row.id}</p>
+                <p className="text-xs font-bold text-brand-600">{row.id}</p>
                 <h2 className="text-xl font-black tracking-tight text-slate-900">{row.service}</h2>
               </div>
               <span
@@ -93,7 +93,7 @@ export function SubmissionHistoryPage() {
                 <button
                   type="button"
                   onClick={() => goProcess({ ...row, status: '승인완료' })}
-                  className="rounded-xl bg-[#336fea] px-4 py-2 text-sm font-bold text-white"
+                  className="rounded-xl bg-brand-600 px-4 py-2 text-sm font-bold text-white"
                 >
                   제출 승인
                 </button>

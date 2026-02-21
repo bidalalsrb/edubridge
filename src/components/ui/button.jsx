@@ -1,9 +1,9 @@
 import { cn } from '../../lib/utils'
 
 const variants = {
-  default: 'bg-[#3182f6] text-white hover:bg-[#1f6fe5]',
-  secondary: 'bg-slate-100 text-slate-900 hover:bg-slate-200',
-  ghost: 'bg-transparent text-slate-700 hover:bg-slate-100',
+  default: 'bg-brand-600 text-white hover:bg-brand-700 shadow-[0_10px_18px_-12px_rgba(47,91,255,0.95)]',
+  secondary: 'border border-brand-150 bg-brand-50 text-brand-700 hover:bg-brand-100',
+  ghost: 'bg-transparent text-slate-700 hover:bg-brand-50',
 }
 
 const sizes = {

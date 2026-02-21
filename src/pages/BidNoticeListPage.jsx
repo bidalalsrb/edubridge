@@ -88,13 +88,13 @@ export function BidNoticeListPage() {
         </button>
         <div>
           <h1 className="text-3xl font-black tracking-tight text-slate-900">입찰 공고 목록</h1>
-          <p className="mt-1 text-sm font-semibold text-[#336fea]">{directionText}</p>
+          <p className="mt-1 text-sm font-semibold text-brand-600">{directionText}</p>
         </div>
       </header>
 
       <section className="space-y-3 px-6 py-6">
-        <article className="rounded-2xl border border-[#dbe4f5] bg-[#f4f7fc] p-4">
-          <p className="text-xs font-bold text-[#336fea]">선택한 서비스 항목</p>
+        <article className="rounded-2xl border border-brand-200 bg-shell-100 p-4">
+          <p className="text-xs font-bold text-brand-600">선택한 서비스 항목</p>
           <h2 className="text-xl font-black tracking-tight text-slate-900">{service}</h2>
           <p className="mt-1 text-sm font-semibold text-slate-600">공고를 선택하면 제안서 작성 화면으로 이동합니다.</p>
         </article>
@@ -108,7 +108,7 @@ export function BidNoticeListPage() {
           >
             <div className="mb-2 flex items-start justify-between gap-3">
               <div>
-                <p className="text-xs font-bold text-[#336fea]">{notice.id}</p>
+                <p className="text-xs font-bold text-brand-600">{notice.id}</p>
                 <h2 className="text-xl font-black tracking-tight text-slate-900">{notice.title}</h2>
               </div>
               <span className="rounded-full bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700">접수중</span>

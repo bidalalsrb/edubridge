@@ -39,7 +39,7 @@ export function DirectorySection({ title, roleLabel, rowsByMode, selectedService
   }
 
   return (
-    <Card className="mt-5 border-[#d7dfea]">
+    <Card className="mt-5 border-brand-200">
       <CardHeader>
         <CardTitle className="text-xl font-black">{title}</CardTitle>
         <p className="text-sm font-semibold text-slate-500">{roleLabel} 등록 소개글을 보고 대학이 직접 제안 요청할 수 있습니다.</p>
@@ -67,7 +67,7 @@ export function DirectorySection({ title, roleLabel, rowsByMode, selectedService
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-2xl font-black tracking-tight text-slate-900">{row.name}</p>
                   <p className="mt-1 flex items-center gap-1 text-sm font-semibold text-slate-500">
-                    <Star className="h-4 w-4 fill-[#2f5bff] text-[#2f5bff]" />
+                    <Star className="h-4 w-4 fill-brand-700 text-brand-700" />
                     {row.rating} · 후기 {row.reviewCount}개 · 경력 {row.careerYears}년
                   </p>
                 </div>
@@ -86,7 +86,7 @@ export function DirectorySection({ title, roleLabel, rowsByMode, selectedService
               <div className="mt-3 grid grid-cols-2 gap-2">
                 <Button
                   variant="secondary"
-                  className="h-11 border border-[#336fea] bg-white text-[#2043e6] hover:bg-blue-50"
+                  className="h-11 border border-brand-600 bg-white text-brand-700 hover:bg-brand-50"
                   onClick={() => onOpenRequestPage(row)}
                 >
                   <Phone className="mr-1 h-4 w-4" />
