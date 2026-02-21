@@ -1,8 +1,8 @@
 import { useState } from 'react'
+import { Phone, Star } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
 
 const viewModes = [
   { key: 'recent', label: '최근 행사 진행' },
@@ -17,6 +17,10 @@ export function DirectorySection({ title, roleLabel, rowsByMode }) {
   const rows = rowsByMode[mode]
 
   const onRequestDirectOffer = (row) => {
+    navigate(`/profile/${row.id}`)
+  }
+
+  const onOpenRequestPage = (row) => {
     const params = new URLSearchParams({
       directTargetId: row.id,
       directTargetName: row.name,
@@ -46,33 +50,46 @@ export function DirectorySection({ title, roleLabel, rowsByMode }) {
           ))}
         </div>
 
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>이름</TableHead>
-              <TableHead>소개글</TableHead>
-              <TableHead>최근 행사일</TableHead>
-              <TableHead className="text-right">액션</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.id}>
-                <TableCell>
-                  <p className="font-extrabold text-slate-800">{row.name}</p>
-                  <p className="text-xs font-semibold text-slate-500">{row.type}</p>
-                </TableCell>
-                <TableCell className="text-sm font-semibold text-slate-600">{row.intro}</TableCell>
-                <TableCell className="text-sm font-semibold">{row.lastEvent}</TableCell>
-                <TableCell className="text-right">
-                  <Button size="sm" onClick={() => onRequestDirectOffer(row)}>
-                    대학이 제안 요청
-                  </Button>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+        <div className="grid gap-3 md:grid-cols-2">
+          {rows.map((row) => (
+            <article key={row.id} className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
+              <div className="flex items-start gap-3">
+                <div className={`mt-1 h-14 w-14 rounded-full ring-4 ring-amber-100 ${row.profileColor || 'bg-slate-300'}`} />
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-2xl font-black tracking-tight text-slate-900">{row.name}</p>
+                  <p className="mt-1 flex items-center gap-1 text-sm font-semibold text-slate-500">
+                    <Star className="h-4 w-4 fill-[#2f5bff] text-[#2f5bff]" />
+                    {row.rating} · 후기 {row.reviewCount}개 · 경력 {row.careerYears}년
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-3 flex flex-wrap gap-2">
+                {(row.badges || []).map((badge) => (
+                  <span key={badge} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">
+                    {badge}
+                  </span>
+                ))}
+              </div>
+
+              <p className="mt-3 line-clamp-2 text-sm font-semibold text-slate-600">{row.intro}</p>
+
+              <div className="mt-3 grid grid-cols-2 gap-2">
+                <Button
+                  variant="secondary"
+                  className="h-11 border border-[#336fea] bg-white text-[#2043e6] hover:bg-blue-50"
+                  onClick={() => onOpenRequestPage(row)}
+                >
+                  <Phone className="mr-1 h-4 w-4" />
+                  전화하기
+                </Button>
+                <Button className="h-11" onClick={() => onRequestDirectOffer(row)}>
+                  자세히보기
+                </Button>
+              </div>
+            </article>
+          ))}
+        </div>
       </CardContent>
     </Card>
   )

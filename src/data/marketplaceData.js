@@ -36,6 +36,14 @@ const vendorPool = [
     lastEvent: '2026-02-18',
     region: '서울',
     tags: ['캠프', '진로'],
+    rating: 4.8,
+    reviewCount: 74,
+    careerYears: 8,
+    badges: ['깔끔한 운영', '빠른 대응'],
+    profileColor: 'bg-amber-300',
+    phone: '010-2287-1010',
+    specialties: ['캠프 운영', '현장 인력관리', '안전 동선 설계'],
+    portfolio: ['신입생 적응캠프 (서울 A대)', '진로체험 페스티벌 (경기 B대)'],
   },
   {
     id: 'V-102',
@@ -45,6 +53,14 @@ const vendorPool = [
     lastEvent: '2026-02-15',
     region: '경기',
     tags: ['저학년', '고학년'],
+    rating: 4.6,
+    reviewCount: 58,
+    careerYears: 6,
+    badges: ['커리큘럼 강점', '만족도 높음'],
+    profileColor: 'bg-sky-300',
+    phone: '010-4421-1020',
+    specialties: ['진로 부트캠프', '포트폴리오 워크숍', '성과 리포트'],
+    portfolio: ['커리어 부트캠프 (인천 C대)', '전공탐색 프로그램 (경기 D대)'],
   },
   {
     id: 'V-103',
@@ -54,6 +70,14 @@ const vendorPool = [
     lastEvent: '2026-02-11',
     region: '부산',
     tags: ['캠프', '졸업생'],
+    rating: 4.7,
+    reviewCount: 67,
+    careerYears: 7,
+    badges: ['팀 분위기 좋음', '현장 안정적'],
+    profileColor: 'bg-emerald-300',
+    phone: '010-5552-1030',
+    specialties: ['대형 행사 운영', '행사 안전관리', '체험형 부스'],
+    portfolio: ['지역연계 취업박람회 (부산 E대)', '졸업생 멘토링데이 (울산 F대)'],
   },
   {
     id: 'V-104',
@@ -63,6 +87,14 @@ const vendorPool = [
     lastEvent: '2026-01-28',
     region: '서울',
     tags: ['행사', '신입생'],
+    rating: 4.5,
+    reviewCount: 49,
+    careerYears: 5,
+    badges: ['친절한 소통', '디테일 강점'],
+    profileColor: 'bg-violet-300',
+    phone: '010-8890-1040',
+    specialties: ['신입생 행사', '학과 홍보', '온보딩 프로그램'],
+    portfolio: ['새내기 페스티벌 (서울 G대)', '학과 오픈위크 (서울 H대)'],
   },
 ]
 
@@ -75,6 +107,14 @@ const freelancerPool = [
     lastEvent: '2026-02-19',
     region: '서울',
     tags: ['특강', 'AI'],
+    rating: 4.9,
+    reviewCount: 91,
+    careerYears: 9,
+    badges: ['실습 중심', '전달력 우수'],
+    profileColor: 'bg-amber-300',
+    phone: '010-9342-2010',
+    specialties: ['AI 특강', '데이터 리터러시', '팀 프로젝트 코칭'],
+    portfolio: ['AI 리터러시 특강 (서울 I대)', '데이터 실습캠프 (세종 J대)'],
   },
   {
     id: 'F-202',
@@ -84,6 +124,14 @@ const freelancerPool = [
     lastEvent: '2026-02-13',
     region: '대전',
     tags: ['창업', '멘토링'],
+    rating: 4.7,
+    reviewCount: 64,
+    careerYears: 7,
+    badges: ['멘토링 강점', '참여도 높음'],
+    profileColor: 'bg-lime-300',
+    phone: '010-7033-2020',
+    specialties: ['창업 멘토링', '비즈니스 모델', '팀빌딩'],
+    portfolio: ['창업동아리 부트캠프 (대전 K대)', '아이디어톤 멘토링 (충남 L대)'],
   },
   {
     id: 'F-203',
@@ -93,6 +141,14 @@ const freelancerPool = [
     lastEvent: '2026-02-09',
     region: '부산',
     tags: ['진로', '포트폴리오'],
+    rating: 4.6,
+    reviewCount: 53,
+    careerYears: 6,
+    badges: ['현업 사례 풍부', '구성 탄탄'],
+    profileColor: 'bg-rose-300',
+    phone: '010-3489-2030',
+    specialties: ['커리어 설계', '취업 포트폴리오', '면접 클리닉'],
+    portfolio: ['취업집중 특강 (부산 M대)', '직무포트폴리오 워크숍 (경남 N대)'],
   },
   {
     id: 'F-204',
@@ -102,6 +158,14 @@ const freelancerPool = [
     lastEvent: '2026-01-30',
     region: '경기',
     tags: ['캠프', '코딩'],
+    rating: 4.8,
+    reviewCount: 70,
+    careerYears: 8,
+    badges: ['프로젝트 기반', '실무 중심'],
+    profileColor: 'bg-cyan-300',
+    phone: '010-6671-2040',
+    specialties: ['코딩 캠프', '해커톤 운영', '프로젝트 리뷰'],
+    portfolio: ['코딩 챌린지 캠프 (경기 O대)', '산학 프로젝트 특강 (서울 P대)'],
   },
 ]
 
@@ -115,6 +179,12 @@ export const freelancerDirectory = {
   recent: freelancerPool.slice(0, 3),
   all: freelancerPool,
   filtered: freelancerPool.filter((item) => item.tags.includes('특강') || item.region === '서울'),
+}
+
+const profilePool = [...vendorPool, ...freelancerPool]
+
+export function getProfileById(profileId) {
+  return profilePool.find((item) => item.id === profileId) || null
 }
 
 export const universityBidNotices = [
