@@ -1,6 +1,7 @@
 import { ArrowLeft, CalendarDays, Clock3, MapPin, Wallet } from 'lucide-react'
 import { useMemo } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { getStatusBadgeClass } from '../lib/statusBadge'
 
 const noticeCatalog = {
   고등학교: [
@@ -111,7 +112,7 @@ export function BidNoticeListPage() {
                 <p className="text-xs font-bold text-brand-600">{notice.id}</p>
                 <h2 className="text-xl font-black tracking-tight text-slate-900">{notice.title}</h2>
               </div>
-              <span className="rounded-full bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700">접수중</span>
+              <span className={`rounded-full px-2 py-1 text-xs font-bold ${getStatusBadgeClass('접수중')}`}>접수중</span>
             </div>
 
             <div className="space-y-1 text-sm font-semibold text-slate-600">

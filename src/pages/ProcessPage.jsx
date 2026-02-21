@@ -1,6 +1,7 @@
 import { CheckCircle2, Circle, Clock3 } from 'lucide-react'
 import { useMemo } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { getStatusBadgeClass } from '../lib/statusBadge'
 
 export function ProcessPage() {
   const navigate = useNavigate()
@@ -38,7 +39,7 @@ export function ProcessPage() {
           <h2 className="text-lg font-black text-slate-900">제안 요약</h2>
           <p className="mt-2 text-sm font-semibold text-slate-600">제안 금액: {price}</p>
           <p className="text-sm font-semibold text-slate-600">예상 기간: {duration}</p>
-          <p className="mt-1 inline-flex items-center gap-1 rounded-full bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700">
+          <p className={`mt-1 inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-bold ${getStatusBadgeClass(status)}`}>
             <Clock3 className="h-3.5 w-3.5" /> 현재 상태: {status}
           </p>
         </article>

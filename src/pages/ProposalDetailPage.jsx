@@ -1,6 +1,7 @@
 import { ArrowLeft, CalendarDays, Clock3, FileText, Paperclip, Wallet } from 'lucide-react'
 import { useMemo } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { getStatusBadgeClass } from '../lib/statusBadge'
 
 const proposalDetails = {
   'P-301': {
@@ -72,7 +73,7 @@ export function ProposalDetailPage() {
               <p className="text-xs font-bold text-brand-600">{proposalId}</p>
               <h2 className="text-xl font-black tracking-tight text-slate-900">{detail.title}</h2>
             </div>
-            <span className="rounded-full bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700">{status}</span>
+            <span className={`rounded-full px-2 py-1 text-xs font-bold ${getStatusBadgeClass(status)}`}>{status}</span>
           </div>
 
           <div className="space-y-1 text-sm font-semibold text-slate-600">

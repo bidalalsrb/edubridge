@@ -2,7 +2,7 @@ import { cn } from '../../lib/utils'
 
 export function TabSwitch({ tabs, activeTab, onChange }) {
   return (
-    <nav className="grid grid-cols-2 rounded-2xl bg-brand-200 p-1.5">
+    <nav className="grid grid-cols-2 rounded-2xl bg-slate-100 p-1.5">
       {tabs.map((tab) => (
         <button
           key={tab.key}

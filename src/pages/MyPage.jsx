@@ -1,13 +1,7 @@
 import { useEffect } from 'react'
-import { Building2, FileText } from 'lucide-react'
+import { Building2, ChevronRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { USER_ROLE, setStoredUserRole } from '../lib/userRole'
-
-const mySubmissions = [
-  { id: 'P-301', service: '행사 기획', status: '제출완료', date: '2026-02-19', price: '3,000,000원', duration: '2주' },
-  { id: 'P-300', service: '캠프 운영', status: '승인완료', date: '2026-02-18', price: '4,200,000원', duration: '3주' },
-  { id: 'P-299', service: '특강 강사', status: '검토중', date: '2026-02-17', price: '2,100,000원', duration: '2주' },
-]
 
 export function MyPage() {
   const navigate = useNavigate()
@@ -16,126 +10,71 @@ export function MyPage() {
     setStoredUserRole(USER_ROLE.university)
   }, [])
 
-  const getStatusClassName = (status) => {
-    if (status === '승인완료') return 'bg-emerald-100 text-emerald-700'
-    if (status === '제출완료') return 'bg-blue-100 text-blue-700'
-    return 'bg-amber-100 text-amber-700'
-  }
-
-  const goSubmissionHistory = () => {
-    navigate('/submissions')
-  }
-
-  const goNoticeCreate = () => {
-    navigate('/notice-create')
-  }
-
-  const goNoticeManage = () => {
-    navigate('/my/notices')
-  }
-
-  const goNoticeStatus = () => {
-    navigate('/my/notices')
-  }
-
-  const goDirectRequest = () => {
-    navigate('/offer')
-  }
-
-  const goSubmissionDetail = (row) => {
-    const params = new URLSearchParams({
-      service: row.service,
-      status: row.status,
-      price: row.price,
-      duration: row.duration,
-      date: row.date,
-    })
-    navigate(`/proposal-detail/${row.id}?${params.toString()}`)
-  }
-
-  const goVendorMyPage = () => {
-    setStoredUserRole(USER_ROLE.vendor)
-    navigate('/vendor/my')
-  }
+  const menuItems = [
+    { label: '공고 등록', desc: '새 대학 입찰 공고 등록', to: '/notice-create' },
+    { label: '내 공고 목록', desc: '등록한 공고 조회/수정', to: '/my/notices' },
+    { label: '진행 현황', desc: '공고별 지원 및 상태 확인', to: '/my/notices' },
+    { label: '업체 리스트', desc: '업체/강사 리스트 탐색', to: '/offer' },
+  ]
 
   return (
-    <>
-      <header className="border-b border-slate-100 bg-white px-6 py-5">
+    <section className="space-y-3 px-4 py-4">
+      <header className="rounded-2xl border border-slate-200 bg-white p-4">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <Building2 className="h-10 w-10 text-brand-600" />
+            <Building2 className="h-8 w-8 text-brand-600" />
             <div>
-              <h1 className="text-3xl font-black tracking-tight text-slate-900">대학 마이페이지</h1>
-              <p className="mt-1 text-sm font-semibold text-brand-600">공고 등록/운영 및 지원자 관리</p>
+              <h1 className="text-lg font-black text-slate-900">대학 마이페이지</h1>
+              <p className="text-xs font-semibold text-slate-500">공고 등록과 지원자 관리를 한 번에</p>
             </div>
           </div>
           <button
             type="button"
-            onClick={goVendorMyPage}
-            className="rounded-xl border border-brand-150 bg-brand-50 px-3 py-2 text-xs font-bold text-brand-700"
+            onClick={() => {
+              setStoredUserRole(USER_ROLE.vendor)
+              navigate('/vendor/my')
+            }}
+            className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold text-slate-700"
           >
             업체 전환
           </button>
         </div>
       </header>
 
-      <section className="space-y-3 px-6 py-6">
-        <article className="rounded-2xl border border-brand-300 bg-brand-50 p-4">
-          <p className="text-xs font-bold text-brand-600">대학 기능</p>
-          <h2 className="text-xl font-black tracking-tight text-slate-900">공고 관리</h2>
-          <div className="mt-3 grid grid-cols-2 gap-2">
-            <button type="button" onClick={goNoticeCreate} className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700">등록
-            </button>
-            <button type="button" onClick={goNoticeManage} className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700">
-              조회
-            </button>
-            <button type="button" onClick={goNoticeStatus} className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700">
-              진행현황
-            </button>
-            <button type="button" onClick={goDirectRequest} className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700">
-              업체 직접 제안요청
-            </button>
+      <article className="rounded-2xl border border-slate-200 bg-white p-4">
+        <p className="text-xs font-semibold text-slate-500">요약</p>
+        <div className="mt-2 grid grid-cols-3 gap-2 text-center">
+          <div className="rounded-lg bg-slate-50 p-2">
+            <p className="text-[11px] font-semibold text-slate-500">운영중 공고</p>
+            <p className="text-lg font-black text-slate-900">2</p>
           </div>
-        </article>
+          <div className="rounded-lg bg-slate-50 p-2">
+            <p className="text-[11px] font-semibold text-slate-500">신규 지원</p>
+            <p className="text-lg font-black text-slate-900">5</p>
+          </div>
+          <div className="rounded-lg bg-slate-50 p-2">
+            <p className="text-[11px] font-semibold text-slate-500">검토 필요</p>
+            <p className="text-lg font-black text-rose-500">2</p>
+          </div>
+        </div>
+      </article>
 
-        <button
-          type="button"
-          onClick={goSubmissionHistory}
-          className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left"
-        >
-          <p className="text-xs font-bold text-brand-600">제안서 내역</p>
-          <h2 className="text-xl font-black tracking-tight text-slate-900">전체 제출 내역 보기</h2>
-          <p className="mt-1 text-sm font-semibold text-slate-600">클릭하면 제안서 제출 내역 페이지로 이동합니다.</p>
-        </button>
-
-        {mySubmissions.map((row) => (
+      <article className="rounded-2xl border border-slate-200 bg-white p-2">
+        {menuItems.map((item) => (
           <button
+            key={item.label}
             type="button"
-            key={row.id}
-            onClick={() => goSubmissionDetail(row)}
-            className="w-full rounded-2xl border border-slate-200 bg-white p-4 text-left"
+            onClick={() => navigate(item.to)}
+            className="flex w-full items-center justify-between rounded-xl px-3 py-3 text-left hover:bg-slate-50"
           >
-            <div className="mb-2 flex items-start justify-between gap-3">
-              <div>
-                <p className="text-xs font-bold text-brand-600">{row.id}</p>
-                <h2 className="text-xl font-black tracking-tight text-slate-900">{row.service}</h2>
-              </div>
-              <span className={`rounded-full px-2 py-1 text-xs font-bold ${getStatusClassName(row.status)}`}>
-                {row.status}
-              </span>
-            </div>
-
-            <div className="space-y-1 text-sm font-semibold text-slate-600">
-              <p className="flex items-center gap-2">
-                <FileText className="h-4 w-4" /> 서비스: {row.service}
-              </p>
-              <p>제안 금액: {row.price}</p>
-              <p>소요 기간: {row.duration}</p>
-              <p>제출일: {row.date}</p>
-            </div>
+            <span>
+              <p className="text-sm font-bold text-slate-800">{item.label}</p>
+              <p className="text-xs font-semibold text-slate-500">{item.desc}</p>
+            </span>
+            <ChevronRight className="h-4 w-4 text-slate-400" />
           </button>
         ))}
-      </section>
-    </>
+      </article>
+    </section>
   )
 }

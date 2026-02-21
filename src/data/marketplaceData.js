@@ -17,7 +17,7 @@ export const platformTabs = [
 
 export const serviceCards = [
   { id: 1, title: '고등학교', icon: CalendarCheck2, color: 'bg-orange-100 text-orange-600' },
-  { id: 2, title: '저학년', icon: BriefcaseBusiness, color: 'bg-blue-100 text-blue-600' },
+  { id: 2, title: '저학년', icon: BriefcaseBusiness, color: 'bg-brand-50 text-blue-600' },
   { id: 3, title: '고학년', icon: GraduationCap, color: 'bg-emerald-100 text-emerald-600' },
   { id: 4, title: '졸업생', icon: MapPinHouse, color: 'bg-cyan-100 text-cyan-600' },
   { id: 5, title: '캠프', icon: Bus, color: 'bg-amber-100 text-amber-600' },
@@ -27,7 +27,18 @@ export const serviceCards = [
   { id: 9, title: '준비중', icon: Plus, color: 'bg-slate-200 text-slate-600' },
 ]
 
-const vendorPool = [
+const POOL_SIZE = 34
+
+function cycle(list, index) {
+  return list[index % list.length]
+}
+
+function makeDateFromOffset(baseDay) {
+  const day = String(Math.max(1, baseDay)).padStart(2, '0')
+  return `2026-02-${day}`
+}
+
+const vendorPoolSeed = [
   {
     id: 'V-101',
     name: '캠퍼스링크',
@@ -102,7 +113,7 @@ const vendorPool = [
   },
 ]
 
-const freelancerPool = [
+const freelancerPoolSeed = [
   {
     id: 'F-201',
     name: '김도연 강사',
@@ -177,14 +188,36 @@ const freelancerPool = [
   },
 ]
 
+const vendorPool = Array.from({ length: POOL_SIZE }, (_, idx) => {
+  const seed = cycle(vendorPoolSeed, idx)
+  return {
+    ...seed,
+    id: `V-${String(101 + idx).padStart(3, '0')}`,
+    name: `${seed.name} ${idx + 1}`,
+    lastEvent: makeDateFromOffset(28 - (idx % 20)),
+    reviewCount: seed.reviewCount + idx,
+  }
+})
+
+const freelancerPool = Array.from({ length: POOL_SIZE }, (_, idx) => {
+  const seed = cycle(freelancerPoolSeed, idx)
+  return {
+    ...seed,
+    id: `F-${String(201 + idx).padStart(3, '0')}`,
+    name: `${seed.name} ${idx + 1}`,
+    lastEvent: makeDateFromOffset(28 - (idx % 20)),
+    reviewCount: seed.reviewCount + idx,
+  }
+})
+
 export const vendorDirectory = {
-  recent: vendorPool.slice(0, 3),
+  recent: vendorPool.slice(0, 5),
   all: vendorPool,
   filtered: vendorPool.filter((item) => item.region === '서울' || item.tags.includes('캠프')),
 }
 
 export const freelancerDirectory = {
-  recent: freelancerPool.slice(0, 3),
+  recent: freelancerPool.slice(0, 5),
   all: freelancerPool,
   filtered: freelancerPool.filter((item) => item.tags.includes('특강') || item.region === '서울'),
 }
@@ -199,13 +232,13 @@ export function getRecentProfilesByService(serviceName) {
   const byRecentDate = (a, b) => String(b.lastEvent).localeCompare(String(a.lastEvent))
   const withService = (item) => (item.focusServices || []).includes(serviceName)
 
-  const vendorRecent = vendorPool.filter(withService).sort(byRecentDate).slice(0, 6)
-  const freelancerRecent = freelancerPool.filter(withService).sort(byRecentDate).slice(0, 6)
+  const vendorRecent = vendorPool.filter(withService).sort(byRecentDate)
+  const freelancerRecent = freelancerPool.filter(withService).sort(byRecentDate)
 
   return { vendorRecent, freelancerRecent }
 }
 
-export const universityBidNotices = [
+const universityBidNoticesSeed = [
   {
     id: 'U-501',
     title: '2026 1학기 신입생 AI 적응캠프',
@@ -266,6 +299,23 @@ export const universityBidNotices = [
     ],
   },
 ]
+
+export const universityBidNotices = Array.from({ length: POOL_SIZE }, (_, idx) => {
+  const seed = cycle(universityBidNoticesSeed, idx)
+  const statusCycle = ['모집중', '심사중', '검토중']
+  return {
+    ...seed,
+    id: `U-${String(501 + idx).padStart(3, '0')}`,
+    title: `${seed.title} ${idx + 1}`,
+    dueDate: `2026-03-${String(1 + (idx % 28)).padStart(2, '0')}`,
+    status: statusCycle[idx % statusCycle.length],
+    isMine: idx % 3 === 0,
+    applicants: seed.applicants.map((applicant, applicantIdx) => ({
+      ...applicant,
+      id: `${applicant.id}-${idx + 1}-${applicantIdx + 1}`,
+    })),
+  }
+})
 
 export function getMyUniversityNotices() {
   return universityBidNotices.filter((notice) => notice.isMine)

@@ -1,13 +1,19 @@
-import { ShieldCheck } from 'lucide-react'
+import { ChevronRight, ShieldCheck } from 'lucide-react'
 
 export function PremiumBanner() {
   return (
-    <section className="mt-8 rounded-2xl bg-[linear-gradient(120deg,#07122b_0%,#122a5b_55%,#1c2e56_100%)] px-4 py-5 text-white">
-      <p className="text-sm font-semibold text-[#7cb0ff]">프리미엄 파트너십</p>
+    <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
+      <p className="text-xs font-bold text-brand-700">추천</p>
       <div className="mt-2 flex items-center justify-between gap-4">
-        <p className="text-2xl font-black leading-tight tracking-tight">우수 검증 업체 매칭 가이드 확인하기</p>
-        <ShieldCheck className="h-12 w-12 text-slate-300" />
+        <div>
+          <p className="text-base font-black text-slate-900">검증된 업체 매칭 가이드</p>
+          <p className="mt-1 text-sm font-semibold text-slate-500">운영 이력, 만족도 기준으로 업체를 빠르게 찾으세요.</p>
+        </div>
+        <ShieldCheck className="h-10 w-10 text-brand-600" />
       </div>
+      <button type="button" className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-brand-700">
+        가이드 보기 <ChevronRight className="h-4 w-4" />
+      </button>
     </section>
   )
 }

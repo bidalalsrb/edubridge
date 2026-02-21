@@ -17,7 +17,7 @@ export const tabs = [
 
 export const services = [
   { id: 1, title: '고등학교', icon: CalendarCheck2, color: 'bg-orange-100 text-orange-600' },
-  { id: 2, title: '저학년', icon: BriefcaseBusiness, color: 'bg-blue-100 text-blue-600' },
+  { id: 2, title: '저학년', icon: BriefcaseBusiness, color: 'bg-brand-50 text-blue-600' },
   { id: 3, title: '고학년', icon: GraduationCap, color: 'bg-purple-100 text-purple-600' },
   { id: 4, title: '졸업생', icon: MapPinHouse, color: 'bg-emerald-100 text-emerald-600' },
   { id: 5, title: '캠프', icon: Bus, color: 'bg-cyan-100 text-cyan-600' },

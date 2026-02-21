@@ -1,48 +1,37 @@
 export function OngoingQuoteCard({ onClickHistory }) {
   return (
-    <section className="mt-8">
-      <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-3xl font-black tracking-tight text-slate-900">진행 중인 견적</h2>
-        <button type="button" className="text-sm font-semibold text-slate-400">
-          {/*전체보기 ›*/}
-        </button>
+    <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
+      <p className="text-sm font-bold text-slate-500">이번 달 진행 현황</p>
+      <div className="mt-3 flex items-end justify-between gap-3">
+        <div>
+          <p className="text-4xl font-black tracking-tight text-slate-900">4,500,000원</p>
+          <p className="mt-1 text-sm font-semibold text-slate-500">진행 중인 공고 예상 정산 금액</p>
+        </div>
+        <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-bold text-brand-700">입찰 3건 진행중</span>
       </div>
 
-      <article className="rounded-2xl border border-brand-150 bg-brand-100 p-5">
-        <span className="inline-flex rounded-full bg-brand-600 px-3 py-1 text-xs font-bold text-white">
-          실시간 입찰 중
-        </span>
-        <div className="mt-4 flex items-start justify-between gap-3">
-          <div>
-            <p className="text-3xl font-black leading-tight tracking-tight text-slate-900">2024 여름방학 AI 캠프 운영 대행</p>
-            <p className="mt-1 text-base font-semibold text-slate-500">마감 D-3 · 총 45개 품목</p>
-          </div>
-          <div className="text-right">
-            <p className="text-sm font-semibold text-slate-400">현재 최저가</p>
-            <p className="text-3xl font-black leading-none tracking-tight text-brand-600">4,500,000원</p>
-          </div>
+      <div className="mt-4 grid grid-cols-3 gap-2 rounded-xl bg-slate-50 p-3 text-center">
+        <div>
+          <p className="text-xs font-semibold text-slate-500">검토중</p>
+          <p className="text-lg font-black text-slate-900">2</p>
         </div>
+        <div>
+          <p className="text-xs font-semibold text-slate-500">승인완료</p>
+          <p className="text-lg font-black text-slate-900">1</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-slate-500">마감임박</p>
+          <p className="text-lg font-black text-rose-500">1</p>
+        </div>
+      </div>
 
-        <div className="mt-5 flex items-center justify-between rounded-2xl bg-white px-3 py-2">
-          <div className="flex items-center gap-2">
-            <div className="flex -space-x-2">
-              <span className="h-6 w-6 rounded-full border-2 border-white bg-emerald-400" />
-              <span className="h-6 w-6 rounded-full border-2 border-white bg-slate-900" />
-              <span className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-slate-200 text-[10px] font-bold text-slate-600">
-                +6
-              </span>
-            </div>
-            <span className="text-sm font-bold text-slate-600">8개 업체 참여 중</span>
-          </div>
-          <button
-            type="button"
-            onClick={onClickHistory}
-            className="rounded-xl bg-brand-600 px-3 py-2 text-sm font-bold text-white"
-          >
-            내역 확인
-          </button>
-        </div>
-      </article>
+      <button
+        type="button"
+        onClick={onClickHistory}
+        className="mt-4 w-full rounded-lg border border-slate-200 bg-white py-3 text-sm font-bold text-slate-700"
+      >
+        입찰 내역 전체 보기
+      </button>
     </section>
   )
 }

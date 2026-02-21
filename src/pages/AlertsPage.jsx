@@ -9,7 +9,7 @@ const alerts = [
 export function AlertsPage() {
   const getTypeClassName = (type) => {
     if (type === '승인') return 'bg-emerald-100 text-emerald-700'
-    if (type === '진행') return 'bg-blue-100 text-blue-700'
+    if (type === '진행') return 'bg-brand-50 text-brand-700'
     return 'bg-amber-100 text-amber-700'
   }
 

@@ -1,15 +1,15 @@
 import { cn } from '../../lib/utils'
 
 const variants = {
-  default: 'bg-brand-600 text-white hover:bg-brand-700 shadow-[0_10px_18px_-12px_rgba(47,91,255,0.95)]',
-  secondary: 'border border-brand-150 bg-brand-50 text-brand-700 hover:bg-brand-100',
-  ghost: 'bg-transparent text-slate-700 hover:bg-brand-50',
+  default: 'bg-brand-600 text-white hover:bg-brand-700 shadow-[0_10px_18px_-14px_rgba(47,107,255,0.95)]',
+  secondary: 'border border-brand-100 bg-white text-slate-700 hover:bg-shell-100',
+  ghost: 'bg-transparent text-slate-700 hover:bg-shell-100',
 }
 
 const sizes = {
-  default: 'h-10 px-4 py-2',
-  sm: 'h-9 px-3 text-sm',
-  lg: 'h-11 px-6',
+  default: 'h-11 px-4 py-2',
+  sm: 'h-10 px-3 text-sm',
+  lg: 'h-12 px-6',
 }
 
 export function Button({ className, variant = 'default', size = 'default', ...props }) {

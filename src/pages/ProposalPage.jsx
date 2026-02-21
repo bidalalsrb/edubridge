@@ -50,7 +50,7 @@ export function ProposalPage() {
         <article className="rounded-2xl border border-brand-200 bg-shell-100 p-4">
           <span className="rounded-md bg-brand-150 px-2 py-1 text-xs font-bold text-brand-600">공고 요약</span>
           <div className="mt-3 flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700">서비스 항목: {service}</span>
+            <span className="rounded-full bg-brand-50 px-2 py-1 text-xs font-bold text-brand-700">서비스 항목: {service}</span>
             <span className="rounded-full bg-slate-200 px-2 py-1 text-xs font-bold text-slate-700">공고번호: {noticeId}</span>
           </div>
           <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight text-slate-900">{noticeTitle}</h2>

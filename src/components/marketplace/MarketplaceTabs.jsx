@@ -6,7 +6,7 @@ export function MarketplaceTabs({ tabs, activeKey }) {
 
   return (
     <Tabs className="w-full">
-      <TabsList className="grid h-auto w-full grid-cols-2 rounded-2xl bg-brand-200 p-1.5">
+      <TabsList className="grid h-auto w-full grid-cols-2 rounded-2xl bg-slate-100 p-1.5">
         {tabs.map((tab) => (
           <TabsTrigger
             key={tab.key}

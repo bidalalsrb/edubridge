@@ -20,25 +20,25 @@ export function RequestDashboardPage() {
   }, [searchParams])
 
   return (
-    <section className="px-6 py-6">
+    <section className="px-4 py-4">
       <MarketplaceTabs tabs={platformTabs} activeKey="request" />
 
-      <Card className="mt-5 border-brand-200 ">
+      <Card className="mt-4 border-slate-200">
         <CardContent className="p-4">
-          <p className="text-xs font-bold text-brand-600">제안해주세요</p>
-          <h1 className="text-2xl font-black tracking-tight text-slate-900">전체 대학 공고</h1>
-          {/*<p className="mt-1 text-sm font-semibold text-slate-600">전체 대학이 등록한 공고를 확인하고, 내 공고는 우측 하단 배지로 구분됩니다.</p>*/}
+          <p className="text-xs font-bold text-slate-500">공고</p>
+          <h1 className="text-lg font-black text-slate-900">대학 입찰 공고</h1>
+          <p className="mt-1 text-xs font-semibold text-slate-500">공고를 선택해 상세를 확인하고 바로 지원할 수 있습니다.</p>
         </CardContent>
       </Card>
 
       {directTarget ? (
-        <Card className="mt-5 border-brand-600 bg-brand-50">
+        <Card className="mt-4 border-brand-200 bg-brand-50">
           <CardContent className="p-4">
-            <p className="text-xs font-bold text-brand-600">직접 제안 요청 대상</p>
-            <p className="text-lg font-black text-slate-900">{directTarget.name}</p>
-            <p className="text-sm font-semibold text-slate-600">{directTarget.role}에게 공고 참여를 요청할 수 있습니다.</p>
+            <p className="text-xs font-bold text-brand-700">직접 제안 요청 대상</p>
+            <p className="text-base font-black text-slate-900">{directTarget.name}</p>
+            <p className="text-xs font-semibold text-slate-600">{directTarget.role}에게 공고 참여를 요청할 수 있습니다.</p>
             <Button size="sm" className="mt-3" onClick={() => navigate('/notice-create')}>
-              공고 등록하러 가기
+              공고 등록
             </Button>
           </CardContent>
         </Card>

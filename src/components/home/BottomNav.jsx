@@ -47,31 +47,31 @@ export function BottomNav() {
   }
 
   return (
-    <footer className="grid grid-cols-4 border-t border-brand-100 bg-white px-3 py-3 text-center text-slate-400">
-      <button className={cn('flex flex-col items-center gap-1 transition-colors', isHome ? 'text-brand-600' : '')} onClick={goHome}>
+    <footer className="grid grid-cols-4 border-t border-brand-100 bg-white px-2 py-2 text-center text-slate-400">
+      <button className={cn('flex min-h-[56px] flex-col items-center justify-center gap-1 rounded-lg transition-colors', isHome ? 'bg-brand-50 text-brand-700' : '')} onClick={goHome}>
         <Home className="h-5 w-5" />
-        <span className="text-[20px] font-semibold">홈</span>
+        <span className="text-[12px] font-semibold">홈</span>
       </button>
       <button
-        className={cn('flex flex-col items-center gap-1 transition-colors', isNotice ? 'text-brand-600' : '')}
+        className={cn('flex min-h-[56px] flex-col items-center justify-center gap-1 rounded-lg transition-colors', isNotice ? 'bg-brand-50 text-brand-700' : '')}
         onClick={goNotice}
       >
         <ClipboardList className="h-5 w-5" />
-        <span className="text-[20px] font-semibold">공고</span>
+        <span className="text-[12px] font-semibold">공고</span>
       </button>
       <button
-        className={cn('relative flex flex-col items-center gap-1 transition-colors', isHistory ? 'text-brand-600' : '')}
+        className={cn('relative flex min-h-[56px] flex-col items-center justify-center gap-1 rounded-lg transition-colors', isHistory ? 'bg-brand-50 text-brand-700' : '')}
         onClick={goHistory}
       >
         <HandCoins className="h-5 w-5" />
-        <span className="text-[20px] font-semibold">내역</span>
+        <span className="text-[12px] font-semibold">내역</span>
       </button>
       <button
-        className={cn('flex flex-col items-center gap-1 transition-colors', isMy ? 'text-brand-600' : '')}
+        className={cn('flex min-h-[56px] flex-col items-center justify-center gap-1 rounded-lg transition-colors', isMy ? 'bg-brand-50 text-brand-700' : '')}
         onClick={goMy}
       >
         <UserRound className="h-5 w-5" />
-        <span className="text-[20px] font-semibold">마이페이지</span>
+        <span className="text-[12px] font-semibold">마이페이지</span>
       </button>
     </footer>
   )

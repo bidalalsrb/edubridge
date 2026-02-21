@@ -1,5 +1,5 @@
 import { ArrowLeft, Star } from 'lucide-react'
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { MarketplaceTabs } from '../components/marketplace/MarketplaceTabs'
 import { Button } from '../components/ui/button'
@@ -38,11 +38,18 @@ function RecentCard({ row, onDetail, onRequest }) {
 export function OfferServiceRecentPage() {
   const navigate = useNavigate()
   const { serviceName } = useParams()
+  const [vendorVisibleCount, setVendorVisibleCount] = useState(5)
+  const [freelancerVisibleCount, setFreelancerVisibleCount] = useState(5)
 
   const decodedServiceName = decodeURIComponent(serviceName || '')
 
   const { vendorRecent, freelancerRecent } = useMemo(() => getRecentProfilesByService(decodedServiceName), [decodedServiceName])
   const matchedNotices = useMemo(() => getUniversityNoticesByService(decodedServiceName), [decodedServiceName])
+
+  useEffect(() => {
+    setVendorVisibleCount(5)
+    setFreelancerVisibleCount(5)
+  }, [decodedServiceName])
 
   const onOpenDetail = (row) => navigate(`/profile/${row.id}`)
   const onBidNotice = () => {
@@ -92,9 +99,14 @@ export function OfferServiceRecentPage() {
           <CardTitle className="text-lg font-bold">최근 업체 리스트</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-3">
-          {vendorRecent.length > 0 ? vendorRecent.map((row) => <RecentCard key={row.id} row={row} onDetail={onOpenDetail} onRequest={onRequest} />) : (
+          {vendorRecent.length > 0 ? vendorRecent.slice(0, vendorVisibleCount).map((row) => <RecentCard key={row.id} row={row} onDetail={onOpenDetail} onRequest={onRequest} />) : (
             <p className="rounded-xl bg-slate-50 p-3 text-sm text-slate-500">해당 서비스의 최근 업체 항목이 없습니다.</p>
           )}
+          {vendorRecent.length > vendorVisibleCount ? (
+            <Button variant="secondary" onClick={() => setVendorVisibleCount((prev) => prev + 5)}>
+              더보기
+            </Button>
+          ) : null}
         </CardContent>
       </Card>
 
@@ -103,9 +115,14 @@ export function OfferServiceRecentPage() {
           <CardTitle className="text-lg font-bold">최근 강사(프리랜서) 리스트</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-3">
-          {freelancerRecent.length > 0 ? freelancerRecent.map((row) => <RecentCard key={row.id} row={row} onDetail={onOpenDetail} onRequest={onRequest} />) : (
+          {freelancerRecent.length > 0 ? freelancerRecent.slice(0, freelancerVisibleCount).map((row) => <RecentCard key={row.id} row={row} onDetail={onOpenDetail} onRequest={onRequest} />) : (
             <p className="rounded-xl bg-slate-50 p-3 text-sm text-slate-500">해당 서비스의 최근 강사 항목이 없습니다.</p>
           )}
+          {freelancerRecent.length > freelancerVisibleCount ? (
+            <Button variant="secondary" onClick={() => setFreelancerVisibleCount((prev) => prev + 5)}>
+              더보기
+            </Button>
+          ) : null}
         </CardContent>
       </Card>
     </section>
