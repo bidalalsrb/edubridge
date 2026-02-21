@@ -10,11 +10,20 @@ const viewModes = [
   { key: 'filtered', label: '필터' },
 ]
 
-export function DirectorySection({ title, roleLabel, rowsByMode }) {
+export function DirectorySection({ title, roleLabel, rowsByMode, selectedService }) {
   const navigate = useNavigate()
   const [mode, setMode] = useState('recent')
 
-  const rows = rowsByMode[mode]
+  const rows = (() => {
+    if (mode !== 'recent') return rowsByMode[mode]
+
+    const matched = rowsByMode.all
+      .filter((row) => (row.focusServices || []).includes(selectedService))
+      .sort((a, b) => String(b.lastEvent).localeCompare(String(a.lastEvent)))
+      .slice(0, 4)
+
+    return matched
+  })()
 
   const onRequestDirectOffer = (row) => {
     navigate(`/profile/${row.id}`)
@@ -89,6 +98,11 @@ export function DirectorySection({ title, roleLabel, rowsByMode }) {
               </div>
             </article>
           ))}
+          {rows.length === 0 ? (
+            <article className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-5 text-sm font-semibold text-slate-500 md:col-span-2">
+              선택한 서비스 `{selectedService}`에 해당하는 최근 항목이 없습니다.
+            </article>
+          ) : null}
         </div>
       </CardContent>
     </Card>

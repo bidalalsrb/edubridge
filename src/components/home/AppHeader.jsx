@@ -10,7 +10,6 @@ export function AppHeader() {
         <p className="text-3xl font-extrabold tracking-tight text-[#336fea]">에듀브릿지</p>
       </div>
       <div className="flex items-center gap-3 text-slate-500">
-        <Search className="h-5 w-5" />
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#f4d2be]">
           <User className="h-4 w-4 text-slate-700" />
         </div>

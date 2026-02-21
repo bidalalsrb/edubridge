@@ -19,14 +19,14 @@ export function BottomNav() {
         onClick={() => navigate('/submissions')}
       >
         <HandCoins className="h-5 w-5" />
-        <span className="text-[20px] font-semibold">내역</span>
+        {/*<span className="text-[20px] font-semibold">내역</span>*/}
       </button>
       <button
         className={cn('relative flex flex-col items-center gap-1', location.pathname === '/alerts' ? 'text-[#336fea]' : '')}
         onClick={() => navigate('/alerts')}
       >
         <Bell className="h-5 w-5" />
-        <span className="text-[20px] font-semibold">알림</span>
+        {/*<span className="text-[20px] font-semibold">알림</span>*/}
       </button>
       <button
         className={cn('flex flex-col items-center gap-1', location.pathname === '/my' ? 'text-[#336fea]' : '')}

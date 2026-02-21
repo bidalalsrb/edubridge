@@ -44,6 +44,7 @@ const vendorPool = [
     phone: '010-2287-1010',
     specialties: ['캠프 운영', '현장 인력관리', '안전 동선 설계'],
     portfolio: ['신입생 적응캠프 (서울 A대)', '진로체험 페스티벌 (경기 B대)'],
+    focusServices: ['고등학교', '캠프', '고학년'],
   },
   {
     id: 'V-102',
@@ -61,6 +62,7 @@ const vendorPool = [
     phone: '010-4421-1020',
     specialties: ['진로 부트캠프', '포트폴리오 워크숍', '성과 리포트'],
     portfolio: ['커리어 부트캠프 (인천 C대)', '전공탐색 프로그램 (경기 D대)'],
+    focusServices: ['저학년', '고학년', '창업'],
   },
   {
     id: 'V-103',
@@ -78,6 +80,7 @@ const vendorPool = [
     phone: '010-5552-1030',
     specialties: ['대형 행사 운영', '행사 안전관리', '체험형 부스'],
     portfolio: ['지역연계 취업박람회 (부산 E대)', '졸업생 멘토링데이 (울산 F대)'],
+    focusServices: ['졸업생', '캠프', '고등학교'],
   },
   {
     id: 'V-104',
@@ -95,6 +98,7 @@ const vendorPool = [
     phone: '010-8890-1040',
     specialties: ['신입생 행사', '학과 홍보', '온보딩 프로그램'],
     portfolio: ['새내기 페스티벌 (서울 G대)', '학과 오픈위크 (서울 H대)'],
+    focusServices: ['고등학교', '저학년', '졸업생'],
   },
 ]
 
@@ -115,6 +119,7 @@ const freelancerPool = [
     phone: '010-9342-2010',
     specialties: ['AI 특강', '데이터 리터러시', '팀 프로젝트 코칭'],
     portfolio: ['AI 리터러시 특강 (서울 I대)', '데이터 실습캠프 (세종 J대)'],
+    focusServices: ['특강', '고학년', '창업'],
   },
   {
     id: 'F-202',
@@ -132,6 +137,7 @@ const freelancerPool = [
     phone: '010-7033-2020',
     specialties: ['창업 멘토링', '비즈니스 모델', '팀빌딩'],
     portfolio: ['창업동아리 부트캠프 (대전 K대)', '아이디어톤 멘토링 (충남 L대)'],
+    focusServices: ['창업', '고학년', '졸업생'],
   },
   {
     id: 'F-203',
@@ -149,6 +155,7 @@ const freelancerPool = [
     phone: '010-3489-2030',
     specialties: ['커리어 설계', '취업 포트폴리오', '면접 클리닉'],
     portfolio: ['취업집중 특강 (부산 M대)', '직무포트폴리오 워크숍 (경남 N대)'],
+    focusServices: ['졸업생', '특강', '고학년'],
   },
   {
     id: 'F-204',
@@ -166,6 +173,7 @@ const freelancerPool = [
     phone: '010-6671-2040',
     specialties: ['코딩 캠프', '해커톤 운영', '프로젝트 리뷰'],
     portfolio: ['코딩 챌린지 캠프 (경기 O대)', '산학 프로젝트 특강 (서울 P대)'],
+    focusServices: ['캠프', '저학년', '고학년'],
   },
 ]
 
@@ -187,14 +195,27 @@ export function getProfileById(profileId) {
   return profilePool.find((item) => item.id === profileId) || null
 }
 
+export function getRecentProfilesByService(serviceName) {
+  const byRecentDate = (a, b) => String(b.lastEvent).localeCompare(String(a.lastEvent))
+  const withService = (item) => (item.focusServices || []).includes(serviceName)
+
+  const vendorRecent = vendorPool.filter(withService).sort(byRecentDate).slice(0, 6)
+  const freelancerRecent = freelancerPool.filter(withService).sort(byRecentDate).slice(0, 6)
+
+  return { vendorRecent, freelancerRecent }
+}
+
 export const universityBidNotices = [
   {
     id: 'U-501',
     title: '2026 1학기 신입생 AI 적응캠프',
     school: '서울미래대학교',
+    service: '고등학교',
+    isMine: true,
     status: '모집중',
     dueDate: '2026-03-10',
     budget: '5,000,000원',
+    progress: ['공고 등록 완료', '지원 접수중', '서류 검토중'],
     applicants: [
       { id: 'A-01', name: '캠퍼스링크', type: '업체', proposal: '4,600,000원', status: '접수완료' },
       { id: 'A-02', name: '김도연 강사', type: '강사', proposal: '2,200,000원', status: '검토중' },
@@ -204,12 +225,56 @@ export const universityBidNotices = [
     id: 'U-502',
     title: '창업 동아리 집중 멘토링 프로그램',
     school: '한빛대학교',
+    service: '창업',
+    isMine: false,
     status: '심사중',
     dueDate: '2026-03-04',
     budget: '3,500,000원',
+    progress: ['공고 등록 완료', '지원 마감', '심사중'],
     applicants: [
       { id: 'A-03', name: '유스커리어랩', type: '업체', proposal: '3,200,000원', status: '심사중' },
       { id: 'A-04', name: '정민우 강사', type: '강사', proposal: '1,900,000원', status: '심사중' },
     ],
   },
+  {
+    id: 'U-503',
+    title: '2026 하계 코딩 캠프 운영 파트너 모집',
+    school: '경인대학교',
+    service: '캠프',
+    isMine: false,
+    status: '모집중',
+    dueDate: '2026-03-18',
+    budget: '4,200,000원',
+    progress: ['공고 등록 완료', '지원 접수중'],
+    applicants: [
+      { id: 'A-05', name: '에듀행사파트너스', type: '업체', proposal: '4,000,000원', status: '접수완료' },
+    ],
+  },
+  {
+    id: 'U-504',
+    title: '졸업예정자 취업 포트폴리오 특강',
+    school: '서울미래대학교',
+    service: '졸업생',
+    isMine: true,
+    status: '검토중',
+    dueDate: '2026-03-08',
+    budget: '2,700,000원',
+    progress: ['공고 등록 완료', '지원 접수중', '1차 검토중'],
+    applicants: [
+      { id: 'A-06', name: '박시은 강사', type: '강사', proposal: '2,500,000원', status: '검토중' },
+      { id: 'A-07', name: '유스커리어랩', type: '업체', proposal: '2,600,000원', status: '검토중' },
+    ],
+  },
 ]
+
+export function getMyUniversityNotices() {
+  return universityBidNotices.filter((notice) => notice.isMine)
+}
+
+export function getUniversityNoticeById(noticeId) {
+  return universityBidNotices.find((notice) => notice.id === noticeId) || null
+}
+
+export function getUniversityNoticesByService(serviceName) {
+  return universityBidNotices.filter((notice) => notice.service === serviceName)
+}

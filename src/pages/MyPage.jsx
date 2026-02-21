@@ -20,6 +20,26 @@ export function MyPage() {
     navigate('/submissions')
   }
 
+  const goNoticeCreate = () => {
+    navigate('/notice-create')
+  }
+
+  const goNoticeManage = () => {
+    navigate('/my/notices')
+  }
+
+  const goNoticeStatus = () => {
+    navigate('/my/notices')
+  }
+
+  const goDirectRequest = () => {
+    navigate('/offer')
+  }
+
+  const goProviderRegister = () => {
+    navigate('/provider-register')
+  }
+
   const goSubmissionDetail = (row) => {
     const params = new URLSearchParams({
       service: row.service,
@@ -44,6 +64,33 @@ export function MyPage() {
       </header>
 
       <section className="space-y-3 px-6 py-6">
+        <article className="rounded-2xl border border-[#cfe0ff] bg-[#eef4ff] p-4">
+          <p className="text-xs font-bold text-[#336fea]">대학 기능</p>
+          <h2 className="text-xl font-black tracking-tight text-slate-900">공고 관리</h2>
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            <button type="button" onClick={goNoticeCreate} className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700">등록
+            </button>
+            <button type="button" onClick={goNoticeManage} className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700">
+              조회
+            </button>
+            <button type="button" onClick={goNoticeStatus} className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700">
+              진행현황
+            </button>
+            <button type="button" onClick={goDirectRequest} className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-700">
+              업체 직접 제안요청
+            </button>
+          </div>
+        </article>
+
+        <article className="rounded-2xl border border-slate-200 bg-white p-4">
+          <p className="text-xs font-bold text-[#336fea]">업체/프리랜서 기능</p>
+          <h2 className="text-xl font-black tracking-tight text-slate-900">업체 등록</h2>
+          <p className="mt-1 text-sm font-semibold text-slate-600">대학이 직접 제안 요청할 수 있도록 프로필을 등록합니다.</p>
+          <button type="button" onClick={goProviderRegister} className="mt-3 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-700">
+            업체 등록하기
+          </button>
+        </article>
+
         <button
           type="button"
           onClick={goSubmissionHistory}
