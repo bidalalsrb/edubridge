@@ -209,7 +209,7 @@ export const universityBidNotices = [
   {
     id: 'U-501',
     title: '2026 1학기 신입생 AI 적응캠프',
-    school: '서울미래대학교',
+    school: '한국공학대학교',
     service: '고등학교',
     isMine: true,
     status: '모집중',
@@ -253,7 +253,7 @@ export const universityBidNotices = [
   {
     id: 'U-504',
     title: '졸업예정자 취업 포트폴리오 특강',
-    school: '서울미래대학교',
+    school: '한국공학대학교',
     service: '졸업생',
     isMine: true,
     status: '검토중',

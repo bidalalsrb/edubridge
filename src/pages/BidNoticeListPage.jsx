@@ -7,7 +7,7 @@ const noticeCatalog = {
     {
       id: 'N-HS-101',
       title: '고등학교 진로체험 캠프 운영',
-      org: '서울미래고등학교',
+      org: '한국공학대학교',
       due: '2026-03-03',
       budget: '4,800,000원',
       duration: '2주',

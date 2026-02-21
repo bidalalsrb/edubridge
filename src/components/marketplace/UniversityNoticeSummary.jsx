@@ -5,7 +5,7 @@ export function UniversityNoticeSummary({ notices }) {
   return (
     <div className="mt-5 grid gap-3">
       {notices.map((notice) => (
-        <Card key={notice.id} className="relative border-[#d7dfea] bg-white">
+        <Card key={notice.id} className={`relative bg-white ${notice.isMine ? 'border-red-400' : 'border-[#d7dfea]'}`}>
           <CardContent className="p-4">
             <div className="flex items-start justify-between gap-3">
               <div>
@@ -13,7 +13,12 @@ export function UniversityNoticeSummary({ notices }) {
                 <h3 className="text-lg font-black text-slate-900">{notice.title}</h3>
                 <p className="text-sm font-semibold text-slate-500">{notice.school}</p>
               </div>
-              <span className="rounded-full bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700">{notice.status}</span>
+              <div className="flex items-center gap-2">
+                {notice.isMine ? (
+                  <span className="rounded-full bg-[#336fea] px-2 py-1 text-xs font-bold text-white">내가 등록한 공고</span>
+                ) : null}
+                <span className="rounded-full bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700">{notice.status}</span>
+              </div>
             </div>
 
             <div className="mt-3 grid gap-2 text-sm font-semibold text-slate-600 md:grid-cols-3">
@@ -28,11 +33,6 @@ export function UniversityNoticeSummary({ notices }) {
               {notice.applicants.map((applicant) => applicant.name).join(', ')} 지원
             </div>
 
-            {notice.isMine ? (
-              <span className="absolute bottom-3 right-3 rounded-full bg-[#336fea] px-2 py-1 text-[14px] font-bold text-white">
-                내가 등록한 공고
-              </span>
-            ) : null}
           </CardContent>
         </Card>
       ))}

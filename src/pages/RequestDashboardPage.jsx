@@ -23,11 +23,11 @@ export function RequestDashboardPage() {
     <section className="px-6 py-6">
       <MarketplaceTabs tabs={platformTabs} activeKey="request" />
 
-      <Card className="mt-5 border-[#d7dfea] bg-[#edf4ff]">
+      <Card className="mt-5 border-[#d7dfea] ">
         <CardContent className="p-4">
           <p className="text-xs font-bold text-[#336fea]">제안해주세요</p>
           <h1 className="text-2xl font-black tracking-tight text-slate-900">전체 대학 공고</h1>
-          <p className="mt-1 text-sm font-semibold text-slate-600">전체 대학이 등록한 공고를 확인하고, 내 공고는 우측 하단 배지로 구분됩니다.</p>
+          {/*<p className="mt-1 text-sm font-semibold text-slate-600">전체 대학이 등록한 공고를 확인하고, 내 공고는 우측 하단 배지로 구분됩니다.</p>*/}
         </CardContent>
       </Card>
 
