@@ -16,6 +16,7 @@ import { ProviderRegisterPage } from './pages/ProviderRegisterPage'
 import { RequestNoticeDetailPage } from './pages/RequestNoticeDetailPage'
 import { RequestDashboardPage } from './pages/RequestDashboardPage'
 import { SubmissionHistoryPage } from './pages/SubmissionHistoryPage'
+import { VendorMyPage } from './pages/VendorMyPage'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="submissions" element={<SubmissionHistoryPage />} />
         <Route path="process/:proposalId" element={<ProcessPage />} />
         <Route path="alerts" element={<AlertsPage />} />
+        <Route path="vendor/my" element={<VendorMyPage />} />
         <Route path="my" element={<MyPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/offer" replace />} />
